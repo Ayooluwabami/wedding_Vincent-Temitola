@@ -50,7 +50,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <Link 
             to="/" 
-            className="font-cormorant text-2xl md:text-3xl font-semibold text-wedding-charcoal"
+            className="font-cormorant text-2xl md:text-3xl font-semibold text-wedding-gold"
           >
             V&T
           </Link>
@@ -61,7 +61,7 @@ const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`nav-link ${
+                className={`nav-link text-xs ${
                   location.pathname === link.path ? 'active-nav-link' : ''
                 }`}
               >
@@ -96,7 +96,7 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`nav-link ${
+                  className={`nav-link text-xs ${
                     location.pathname === link.path ? 'active-nav-link' : ''
                   }`}
                 >

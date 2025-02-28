@@ -6,16 +6,16 @@ import { motion } from 'framer-motion';
 
 const bridalParty = [
   {
-    name: "Jane Doe",
-    role: "Maid of Honor",
-    image: "/lovable-uploads/a5f89a38-4621-4ba9-b4fa-ee13395baeb0.png",
+    name: "Olowookere Temitade",
+    role: "Chief Bridesmaid",
+    image: "/lovable-uploads/7954875f-8f90-4c81-8c09-5bc15f30222f.png",
     description: "Best friend since childhood and always there through thick and thin."
   },
   {
-    name: "Sarah Smith",
-    role: "Bridesmaid",
-    image: "/lovable-uploads/bef8aa40-8bfa-439c-9eeb-53349f5da554.png",
-    description: "College roommate and dear friend with the best advice."
+    name: "Oluyemi Ikeoluwa",
+    role: "Little Bride",
+    image: "/lovable-uploads/0227836e-a82b-4368-8771-49c062f132ea.png",
+    description: "Our adorable little bride who will lead with grace and charm."
   },
   {
     name: "Emily Johnson",
@@ -33,9 +33,9 @@ const bridalParty = [
 
 const groomsmen = [
   {
-    name: "John Smith",
+    name: "Akinnifesi Emmanuel",
     role: "Best Man",
-    image: "/lovable-uploads/32dd6604-37e8-4bc0-9991-5936833e0d5b.png",
+    image: "/lovable-uploads/4bc1cbf0-5b3f-4be0-8df5-515133a688e1.png",
     description: "Childhood friend who's always been like a brother to me."
   },
   {
@@ -60,11 +60,19 @@ const groomsmen = [
 
 const WeddingParty = () => {
   const weddingDate = new Date('2025-04-25T11:00:00');
+  
+  // Custom title with styled ampersand
+  const CustomTitle = () => (
+    <div className="flex items-center justify-center">
+      <span className="font-playfair">Wedding</span>
+      <span className="text-wedding-gold mx-2 font-playfair italic">Party</span>
+    </div>
+  );
 
   return (
     <>
       <Hero
-        title="Wedding Party"
+        title={<CustomTitle />}
         subtitle="Meet our wonderful support team"
         image="/lovable-uploads/ac09c5c0-cc9e-4cdb-8a3a-d085a7a5ce08.png"
         date={weddingDate}
@@ -147,7 +155,7 @@ const WeddingParty = () => {
               have been invaluable to us, and we are blessed to have you all in our lives.
             </p>
             <p className="font-cormorant italic text-xl text-wedding-gold">
-              With love, Vincent & Temitola
+              With love, Vincent <span className="text-wedding-gold">&</span> Temitola
             </p>
           </motion.div>
         </div>
@@ -171,7 +179,7 @@ const PersonCard = ({ name, role, image, description, index }: PersonCardProps) 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="glass-card overflow-hidden group"
+      className="glass-card overflow-hidden group hover:shadow-lg transition-all duration-300"
     >
       <div className="relative overflow-hidden h-64">
         <img
@@ -179,9 +187,10 @@ const PersonCard = ({ name, role, image, description, index }: PersonCardProps) 
           alt={name}
           className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
       
-      <div className="p-5">
+      <div className="p-5 bg-gradient-to-br from-white to-wedding-cream/30">
         <h3 className="font-playfair text-lg font-semibold text-wedding-charcoal">{name}</h3>
         <p className="text-wedding-gold font-cormorant italic mb-2">{role}</p>
         <p className="text-wedding-charcoal/80 text-sm">{description}</p>

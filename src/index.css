@@ -122,7 +122,7 @@
   }
   
   .nav-link {
-    @apply relative inline-block text-wedding-charcoal font-montserrat text-sm uppercase tracking-wider font-medium transition-colors duration-300 hover:text-wedding-gold;
+    @apply relative inline-block text-wedding-charcoal font-montserrat uppercase tracking-wider font-medium transition-colors duration-300 hover:text-wedding-gold;
   }
   
   .nav-link::after {
@@ -234,6 +234,30 @@
   
   .timeline-date {
     @apply absolute left-0 top-0 -translate-x-[calc(100%+20px)] text-right w-32 font-cormorant italic text-wedding-gold;
+  }
+  
+  /* Artistic elements */
+  .decorative-border {
+    @apply relative;
+  }
+  
+  .decorative-border::before {
+    content: '';
+    @apply absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-wedding-gold;
+  }
+  
+  .decorative-border::after {
+    content: '';
+    @apply absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-wedding-gold;
+  }
+
+  .elegant-divider {
+    @apply relative h-px w-full bg-wedding-gold/20 my-8;
+  }
+
+  .elegant-divider::before {
+    content: '♦';
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-wedding-gold bg-white px-4;
   }
   
   @media (max-width: 768px) {

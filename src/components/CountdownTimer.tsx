@@ -60,7 +60,7 @@ const CountdownTimer = ({ targetDate, className = '' }: CountdownProps) => {
 
   return (
     <div className={`${className}`}>
-      <div className="grid grid-cols-4 gap-2 sm:gap-4">
+      <div className="grid grid-cols-4 gap-3 sm:gap-4">
         <TimeUnit label="Days" value={formatNumber(timeLeft.days)} />
         <TimeUnit label="Hours" value={formatNumber(timeLeft.hours)} />
         <TimeUnit label="Minutes" value={formatNumber(timeLeft.minutes)} />
@@ -78,10 +78,10 @@ const TimeUnit = ({ label, value }: { label: string; value: string }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="glass-card w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center mb-1">
-        <span className="font-cormorant text-2xl sm:text-3xl md:text-4xl font-semibold">{value}</span>
+      <div className="bg-gradient-to-br from-white to-wedding-cream w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center mb-1 rounded-lg border border-wedding-gold/20 shadow-md backdrop-blur-sm">
+        <span className="font-playfair text-2xl sm:text-3xl md:text-4xl font-semibold text-wedding-charcoal">{value}</span>
       </div>
-      <span className="text-xs uppercase font-montserrat tracking-wider">{label}</span>
+      <span className="text-xs uppercase font-montserrat tracking-wider text-wedding-gold font-medium">{label}</span>
     </motion.div>
   );
 };

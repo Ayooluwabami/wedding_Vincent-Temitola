@@ -6,13 +6,21 @@ import { motion } from 'framer-motion';
 
 const Venue = () => {
   const weddingDate = new Date('2025-04-25T11:00:00');
+  
+  // Custom title with styled ampersand
+  const CustomTitle = () => (
+    <div className="flex items-center justify-center">
+      <span className="font-playfair">Our</span>
+      <span className="text-wedding-gold mx-2 font-playfair italic">Venue</span>
+    </div>
+  );
 
   return (
     <>
       <Hero
-        title="Venue"
+        title={<CustomTitle />}
         subtitle="Where we'll celebrate our special day"
-        image="/placeholder.svg" // Replace with actual image
+        image="/lovable-uploads/571a7bbb-d095-4ec6-9e72-7fa4c716aa96.png" 
         date={weddingDate}
         showCountdown={false}
       />
@@ -28,10 +36,11 @@ const Venue = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="glass-card p-6 hover:shadow-xl transition-all duration-300 border-l-4 border-wedding-gold"
           >
             <h3 className="font-playfair text-2xl font-semibold mb-4 text-wedding-charcoal">Traditional Wedding</h3>
             
-            <div className="mb-6">
+            <div className="mb-6 overflow-hidden rounded-lg">
               <Map 
                 latitude={7.2571} 
                 longitude={5.2058} 
@@ -41,9 +50,12 @@ const Venue = () => {
             </div>
             
             <div className="space-y-2">
-              <p className="font-medium text-wedding-charcoal">Friday, April 25, 2025</p>
-              <p className="text-wedding-charcoal/80">11:00 AM to 3:00 PM</p>
-              <p className="text-wedding-charcoal/80">Akure, Ondo State, Nigeria</p>
+              <p className="font-medium text-wedding-charcoal flex items-center">
+                <span className="text-wedding-gold mr-2">⟡</span>
+                Friday, April 25, 2025
+              </p>
+              <p className="text-wedding-charcoal/80 pl-6">11:00 AM to 3:00 PM</p>
+              <p className="text-wedding-charcoal/80 pl-6 italic">Akure, Ondo State, Nigeria</p>
             </div>
           </motion.div>
           
@@ -52,10 +64,11 @@ const Venue = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
+            className="glass-card p-6 hover:shadow-xl transition-all duration-300 border-l-4 border-wedding-gold"
           >
             <h3 className="font-playfair text-2xl font-semibold mb-4 text-wedding-charcoal">Wedding Reception & After-party</h3>
             
-            <div className="mb-6">
+            <div className="mb-6 overflow-hidden rounded-lg">
               <Map 
                 latitude={7.2571} 
                 longitude={5.2058} 
@@ -65,10 +78,13 @@ const Venue = () => {
             </div>
             
             <div className="space-y-2">
-              <p className="font-medium text-wedding-charcoal">Saturday, April 26, 2025</p>
-              <p className="text-wedding-charcoal/80">Reception: 11:00 AM to 3:00 PM</p>
-              <p className="text-wedding-charcoal/80">After-party: 4:00 PM to 8:00 PM</p>
-              <p className="text-wedding-charcoal/80">Akure, Ondo State, Nigeria</p>
+              <p className="font-medium text-wedding-charcoal flex items-center">
+                <span className="text-wedding-gold mr-2">⟡</span>
+                Saturday, April 26, 2025
+              </p>
+              <p className="text-wedding-charcoal/80 pl-6">Reception: 11:00 AM to 3:00 PM</p>
+              <p className="text-wedding-charcoal/80 pl-6">After-party: 4:00 PM to 8:00 PM</p>
+              <p className="text-wedding-charcoal/80 pl-6 italic">Akure, Ondo State, Nigeria</p>
             </div>
           </motion.div>
         </div>
@@ -85,7 +101,7 @@ const Venue = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="glass-card p-6"
+              className="bg-gradient-to-br from-white to-wedding-cream/30 p-6 rounded-lg shadow-md border border-wedding-gold/20 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
             >
               <h3 className="font-playfair text-xl font-semibold mb-3 text-wedding-charcoal">Hotel Option 1</h3>
               <p className="text-wedding-charcoal/80 mb-4">
@@ -102,7 +118,7 @@ const Venue = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="glass-card p-6"
+              className="bg-gradient-to-br from-white to-wedding-cream/30 p-6 rounded-lg shadow-md border border-wedding-gold/20 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
             >
               <h3 className="font-playfair text-xl font-semibold mb-3 text-wedding-charcoal">Hotel Option 2</h3>
               <p className="text-wedding-charcoal/80 mb-4">
@@ -119,54 +135,6 @@ const Venue = () => {
             <p className="text-wedding-charcoal/80 mb-4">
               For assistance with accommodation arrangements, please don't hesitate to contact us.
             </p>
-          </div>
-        </div>
-      </Section>
-      
-      <Section
-        title="Transportation"
-        subtitle="Getting around in Akure"
-        className="bg-wedding-beige/10"
-      >
-        <div className="max-w-2xl mx-auto">
-          <div className="space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h3 className="font-playfair text-xl font-semibold mb-3 text-wedding-charcoal">From the Airport</h3>
-              <p className="text-wedding-charcoal/80">
-                The closest airport is Akure Airport. Taxis and ride-sharing services are available at the airport.
-                The journey to the venue takes approximately 20 minutes.
-              </p>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <h3 className="font-playfair text-xl font-semibold mb-3 text-wedding-charcoal">Local Transportation</h3>
-              <p className="text-wedding-charcoal/80">
-                Taxis and ride-sharing services are readily available throughout Akure. We recommend using these services
-                for convenience and reliability.
-              </p>
-            </motion.div>
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <h3 className="font-playfair text-xl font-semibold mb-3 text-wedding-charcoal">Parking</h3>
-              <p className="text-wedding-charcoal/80">
-                Complimentary parking is available at both venue locations. Attendants will be present to assist with parking.
-              </p>
-            </motion.div>
           </div>
         </div>
       </Section>

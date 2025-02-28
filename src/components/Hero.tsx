@@ -1,10 +1,10 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactNode } from 'react';
 import CountdownTimer from './CountdownTimer';
 
 interface HeroProps {
-  title: string;
+  title: ReactNode;
   subtitle: string;
   image: string;
   additionalImages?: string[];
@@ -94,12 +94,12 @@ const Hero = ({
             {subtitle}
           </motion.h3>
           
-          <motion.h1 
-            className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
+          <motion.div
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
             variants={itemVariants}
           >
             {title}
-          </motion.h1>
+          </motion.div>
           
           {showCountdown && (
             <motion.div variants={itemVariants}>

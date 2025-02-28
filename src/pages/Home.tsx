@@ -21,10 +21,19 @@ const heroImages = [
 ];
 
 const Home = () => {
+  // Custom title with styled ampersand
+  const CustomTitle = () => (
+    <div className="flex items-center justify-center">
+      <span className="font-playfair">Vincent</span>
+      <span className="text-wedding-gold mx-2 font-playfair italic">&</span>
+      <span className="font-playfair">Temitola</span>
+    </div>
+  );
+  
   return (
     <>
       <Hero
-        title="Vincent & Temitola"
+        title={<CustomTitle />}
         subtitle="We're getting married!"
         image={heroImages[0]}
         additionalImages={heroImages.slice(1)}
@@ -76,14 +85,14 @@ const Home = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="glass-card p-6">
+            <div className="glass-card p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
               <h3 className="font-cormorant text-2xl font-semibold mb-3 text-wedding-charcoal">Traditional Wedding</h3>
               <p className="text-wedding-charcoal/80 mb-4">Join us for our Traditional Wedding ceremony as we honor our cultural heritage.</p>
               <p className="font-medium">April 25, 2025</p>
               <p className="italic text-wedding-silver">Akure, Ondo State, Nigeria</p>
             </div>
             
-            <div className="glass-card p-6">
+            <div className="glass-card p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
               <h3 className="font-cormorant text-2xl font-semibold mb-3 text-wedding-charcoal">Wedding Reception</h3>
               <p className="text-wedding-charcoal/80 mb-4">Celebrate with us during our Wedding Reception as we begin our journey together.</p>
               <p className="font-medium">April 26, 2025</p>
@@ -123,9 +132,9 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <motion.div
             className="text-center"
-            whileHover={{ y: -5, transition: { duration: 0.3 } }}
+            whileHover={{ y: -8, transition: { duration: 0.3 } }}
           >
-            <div className="bg-wedding-cream/70 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-gradient-to-br from-wedding-cream to-wedding-beige w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
               <span className="text-wedding-gold text-2xl">📅</span>
             </div>
             <h3 className="font-playfair text-xl font-semibold mb-2">Schedule</h3>
@@ -137,13 +146,13 @@ const Home = () => {
           
           <motion.div
             className="text-center"
-            whileHover={{ y: -5, transition: { duration: 0.3 } }}
+            whileHover={{ y: -8, transition: { duration: 0.3 } }}
           >
-            <div className="bg-wedding-cream/70 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-gradient-to-br from-wedding-cream to-wedding-beige w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
               <span className="text-wedding-gold text-2xl">🏨</span>
             </div>
             <h3 className="font-playfair text-xl font-semibold mb-2">Venue</h3>
-            <p className="text-wedding-charcoal/80">Find directions and accommodation options for our venues.</p>
+            <p className="text-wedding-charcoal/80">Find directions and accommodation options for our venue.</p>
             <Link to="/venue" className="nav-link mt-4 inline-block">
               Find Location
             </Link>
@@ -151,9 +160,9 @@ const Home = () => {
           
           <motion.div
             className="text-center"
-            whileHover={{ y: -5, transition: { duration: 0.3 } }}
+            whileHover={{ y: -8, transition: { duration: 0.3 } }}
           >
-            <div className="bg-wedding-cream/70 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="bg-gradient-to-br from-wedding-cream to-wedding-beige w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
               <span className="text-wedding-gold text-2xl">🎁</span>
             </div>
             <h3 className="font-playfair text-xl font-semibold mb-2">Gifts</h3>
