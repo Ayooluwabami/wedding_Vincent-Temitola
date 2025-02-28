@@ -1,16 +1,37 @@
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import CountdownTimer from './CountdownTimer';
 
 interface HeroProps {
   title: string;
   subtitle: string;
   image: string;
+  additionalImages?: string[];
   date: Date;
   showCountdown?: boolean;
 }
 
-const Hero = ({ title, subtitle, image, date, showCountdown = true }: HeroProps) => {
+const Hero = ({ 
+  title, 
+  subtitle, 
+  image, 
+  additionalImages = [], 
+  date, 
+  showCountdown = true 
+}: HeroProps) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const allImages = [image, ...(additionalImages || [])];
+
+  useEffect(() => {
+    // Change image every 5 seconds
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % allImages.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [allImages.length]);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -34,27 +55,32 @@ const Hero = ({ title, subtitle, image, date, showCountdown = true }: HeroProps)
     }
   };
 
+  // Ensure hero content is properly constrained
   return (
     <section className="relative h-screen overflow-hidden">
-      {/* Background Image */}
+      {/* Background Image with animation */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/30 z-10" />
-        <motion.div
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 2, ease: "easeOut" }}
-          className="w-full h-full"
-        >
-          <img 
-            src={image} 
-            alt="Hero background" 
-            className="w-full h-full object-cover"
-          />
-        </motion.div>
+        <div className="absolute inset-0 bg-black/40 z-10" />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentImageIndex}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="w-full h-full"
+          >
+            <img 
+              src={allImages[currentImageIndex]} 
+              alt="Hero background" 
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Content */}
-      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center text-white px-4">
+      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center text-white px-4 container mx-auto">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -69,7 +95,7 @@ const Hero = ({ title, subtitle, image, date, showCountdown = true }: HeroProps)
           </motion.h3>
           
           <motion.h1 
-            className="font-playfair text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold mb-6"
+            className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
             variants={itemVariants}
           >
             {title}
@@ -82,6 +108,22 @@ const Hero = ({ title, subtitle, image, date, showCountdown = true }: HeroProps)
           )}
         </motion.div>
       </div>
+      
+      {/* Navigation dots for the image carousel */}
+      {allImages.length > 1 && (
+        <div className="absolute bottom-8 left-0 right-0 z-30 flex justify-center space-x-2">
+          {allImages.map((_, index) => (
+            <button
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentImageIndex ? 'bg-white scale-125' : 'bg-white/50'
+              }`}
+              onClick={() => setCurrentImageIndex(index)}
+              aria-label={`View image ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 };

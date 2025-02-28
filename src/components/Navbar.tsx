@@ -52,7 +52,7 @@ const Navbar = () => {
             to="/" 
             className="font-cormorant text-2xl md:text-3xl font-semibold text-wedding-charcoal"
           >
-            Vincent & Temitola
+            V&T
           </Link>
 
           {/* Desktop Navigation */}

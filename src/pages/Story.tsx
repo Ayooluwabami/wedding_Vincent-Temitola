@@ -6,13 +6,22 @@ import { motion } from 'framer-motion';
 
 const Story = () => {
   const weddingDate = new Date('2025-04-25T11:00:00');
+  
+  // Additional images for story hero
+  const heroImages = [
+    "/lovable-uploads/8880cfd1-7f37-4098-b5e4-3128239803bb.png",
+    "/lovable-uploads/cc361c12-3011-49ba-8d4b-cab42ee07b3e.png",
+    "/lovable-uploads/a1304f55-2b0b-4fe7-bda1-94862464d88b.png",
+    "/lovable-uploads/f7e9c3db-a15f-45fd-abe8-c24b74d628d2.png",
+  ];
 
   return (
     <>
       <Hero
         title="Our Story"
         subtitle="How We Met & Fell in Love"
-        image="/lovable-uploads/8880cfd1-7f37-4098-b5e4-3128239803bb.png"
+        image={heroImages[0]}
+        additionalImages={heroImages.slice(1)}
         date={weddingDate}
         showCountdown={false}
       />

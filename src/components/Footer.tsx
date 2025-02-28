@@ -20,14 +20,14 @@ const Footer = () => {
             {`April 25-26, 2025 • Akure, Ondo State, Nigeria`}
           </p>
           
-          <div className="flex justify-center gap-8 mb-8">
+          <div className="flex justify-center gap-8 mb-12">
             <Link to="/story" className="nav-link">Our Story</Link>
             <Link to="/schedule" className="nav-link">Schedule</Link>
             <Link to="/venue" className="nav-link">Venue</Link>
             <Link to="/faq" className="nav-link">Q & A</Link>
           </div>
           
-          <div className="flex items-center justify-center text-wedding-charcoal mb-2">
+          <div className="flex items-center justify-center text-wedding-charcoal mb-6">
             <Heart size={16} className="text-wedding-rose mr-2" />
             <p className="font-cormorant italic">
               Thank you for celebrating with us
@@ -35,7 +35,7 @@ const Footer = () => {
             <Heart size={16} className="text-wedding-rose ml-2" />
           </div>
           
-          <p className="text-sm text-wedding-charcoal/70">
+          <p className="text-sm text-wedding-charcoal/70 mt-4 pt-4 border-t border-wedding-charcoal/10 w-full text-center">
             © {currentYear} Copyright Ayobami Ekundayo. All rights reserved.
           </p>
         </div>

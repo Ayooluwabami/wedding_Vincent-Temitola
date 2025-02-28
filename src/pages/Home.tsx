@@ -8,13 +8,26 @@ import CountdownTimer from '@/components/CountdownTimer';
 
 const weddingDate = new Date('2025-04-25T11:00:00');
 
+// Collection of hero images for the carousel
+const heroImages = [
+  "/lovable-uploads/2b1e28be-3440-4996-a112-ec40e565f577.png",
+  "/lovable-uploads/cc361c12-3011-49ba-8d4b-cab42ee07b3e.png",
+  "/lovable-uploads/571a7bbb-d095-4ec6-9e72-7fa4c716aa96.png",
+  "/lovable-uploads/87e2b97f-0644-4a12-9739-298c718bc2a9.png",
+  "/lovable-uploads/efb8700e-f1b0-460f-857d-a4e5425c8fc1.png",
+  "/lovable-uploads/8880cfd1-7f37-4098-b5e4-3128239803bb.png",
+  "/lovable-uploads/a1304f55-2b0b-4fe7-bda1-94862464d88b.png",
+  "/lovable-uploads/f7e9c3db-a15f-45fd-abe8-c24b74d628d2.png"
+];
+
 const Home = () => {
   return (
     <>
       <Hero
         title="Vincent & Temitola"
         subtitle="We're getting married!"
-        image="/lovable-uploads/2b1e28be-3440-4996-a112-ec40e565f577.png"
+        image={heroImages[0]}
+        additionalImages={heroImages.slice(1)}
         date={weddingDate}
       />
       

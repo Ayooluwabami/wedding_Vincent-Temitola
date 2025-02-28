@@ -53,13 +53,21 @@ const tidbits = [
 
 const Tidbits = () => {
   const weddingDate = new Date('2025-04-25T11:00:00');
+  
+  // Additional images for tidbits hero
+  const heroImages = [
+    "/lovable-uploads/d230ca28-3fe8-4689-89cc-7dabc275e6f0.png",
+    "/lovable-uploads/1fe02b61-be20-4d1d-bdbb-1bd759bed963.png",
+    "/lovable-uploads/a51b1e50-4082-43b1-9d95-19541548350e.png",
+  ];
 
   return (
     <>
       <Hero
         title="Tidbits"
         subtitle="Little things that make us, us"
-        image="/lovable-uploads/d230ca28-3fe8-4689-89cc-7dabc275e6f0.png"
+        image={heroImages[0]}
+        additionalImages={heroImages.slice(1)}
         date={weddingDate}
         showCountdown={false}
       />
