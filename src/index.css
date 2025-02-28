@@ -223,7 +223,7 @@
   }
   
   .timeline-item {
-    @apply relative pl-6 ml-1/2 mb-8;
+    @apply relative pl-6 ml-[50%] mb-8;
   }
   
   .timeline-item::before {
