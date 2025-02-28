@@ -59,7 +59,7 @@ const Tidbits = () => {
       <Hero
         title="Tidbits"
         subtitle="Little things that make us, us"
-        image="/placeholder.svg" // Replace with actual image
+        image="/lovable-uploads/d230ca28-3fe8-4689-89cc-7dabc275e6f0.png"
         date={weddingDate}
         showCountdown={false}
       />
@@ -71,7 +71,7 @@ const Tidbits = () => {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-12">
           <AnimatedImage
-            src="/placeholder.svg" // Replace with actual image
+            src="/lovable-uploads/1fe02b61-be20-4d1d-bdbb-1bd759bed963.png"
             alt="Vincent and Temitola"
             className="rounded-lg overflow-hidden shadow-lg h-80"
           />

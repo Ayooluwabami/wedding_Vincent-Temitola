@@ -14,7 +14,7 @@ const Home = () => {
       <Hero
         title="Vincent & Temitola"
         subtitle="We're getting married!"
-        image="/placeholder.svg" // Replace with actual image
+        image="/lovable-uploads/2b1e28be-3440-4996-a112-ec40e565f577.png"
         date={weddingDate}
       />
       
@@ -43,7 +43,7 @@ const Home = () => {
           </div>
           
           <AnimatedImage
-            src="/placeholder.svg" // Replace with actual image
+            src="/lovable-uploads/cc361c12-3011-49ba-8d4b-cab42ee07b3e.png"
             alt="Vincent and Temitola"
             className="rounded-lg overflow-hidden h-80 md:h-96"
           />
@@ -86,17 +86,17 @@ const Home = () => {
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
           <AnimatedImage
-            src="/placeholder.svg" // Replace with actual image
+            src="/lovable-uploads/571a7bbb-d095-4ec6-9e72-7fa4c716aa96.png"
             alt="Gallery image 1"
             className="h-80 md:h-full"
           />
           <AnimatedImage
-            src="/placeholder.svg" // Replace with actual image
+            src="/lovable-uploads/87e2b97f-0644-4a12-9739-298c718bc2a9.png"
             alt="Gallery image 2" 
             className="h-80 md:h-full"
           />
           <AnimatedImage
-            src="/placeholder.svg" // Replace with actual image
+            src="/lovable-uploads/efb8700e-f1b0-460f-857d-a4e5425c8fc1.png"
             alt="Gallery image 3"
             className="h-80 md:h-full"
           />
@@ -113,11 +113,7 @@ const Home = () => {
             whileHover={{ y: -5, transition: { duration: 0.3 } }}
           >
             <div className="bg-wedding-cream/70 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-              <img 
-                src="/placeholder.svg" // Replace with an icon
-                alt="Schedule icon" 
-                className="w-10 h-10"
-              />
+              <span className="text-wedding-gold text-2xl">📅</span>
             </div>
             <h3 className="font-playfair text-xl font-semibold mb-2">Schedule</h3>
             <p className="text-wedding-charcoal/80">Explore our wedding timeline and don't miss any moment.</p>
@@ -131,11 +127,7 @@ const Home = () => {
             whileHover={{ y: -5, transition: { duration: 0.3 } }}
           >
             <div className="bg-wedding-cream/70 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-              <img 
-                src="/placeholder.svg" // Replace with an icon
-                alt="Venue icon" 
-                className="w-10 h-10"
-              />
+              <span className="text-wedding-gold text-2xl">🏨</span>
             </div>
             <h3 className="font-playfair text-xl font-semibold mb-2">Venue</h3>
             <p className="text-wedding-charcoal/80">Find directions and accommodation options for our venues.</p>
@@ -149,11 +141,7 @@ const Home = () => {
             whileHover={{ y: -5, transition: { duration: 0.3 } }}
           >
             <div className="bg-wedding-cream/70 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
-              <img 
-                src="/placeholder.svg" // Replace with an icon
-                alt="RSVP icon" 
-                className="w-10 h-10"
-              />
+              <span className="text-wedding-gold text-2xl">🎁</span>
             </div>
             <h3 className="font-playfair text-xl font-semibold mb-2">Gifts</h3>
             <p className="text-wedding-charcoal/80">Support our new journey together with your generous gifts.</p>

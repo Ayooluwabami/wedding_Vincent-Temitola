@@ -8,25 +8,25 @@ const bridalParty = [
   {
     name: "Jane Doe",
     role: "Maid of Honor",
-    image: "/placeholder.svg", // Replace with actual image
+    image: "/lovable-uploads/a5f89a38-4621-4ba9-b4fa-ee13395baeb0.png",
     description: "Best friend since childhood and always there through thick and thin."
   },
   {
     name: "Sarah Smith",
     role: "Bridesmaid",
-    image: "/placeholder.svg", // Replace with actual image
+    image: "/lovable-uploads/bef8aa40-8bfa-439c-9eeb-53349f5da554.png",
     description: "College roommate and dear friend with the best advice."
   },
   {
     name: "Emily Johnson",
     role: "Bridesmaid",
-    image: "/placeholder.svg", // Replace with actual image
+    image: "/lovable-uploads/0af6a945-db0e-45a1-80c9-d36dbe2e8760.png",
     description: "Cousin and partner in all adventures since we were little."
   },
   {
     name: "Olivia Brown",
     role: "Bridesmaid",
-    image: "/placeholder.svg", // Replace with actual image
+    image: "/lovable-uploads/14cfc873-8532-4744-aa06-5a97ab7fd028.png",
     description: "Work colleague turned friend who always makes me laugh."
   }
 ];
@@ -35,25 +35,25 @@ const groomsmen = [
   {
     name: "John Smith",
     role: "Best Man",
-    image: "/placeholder.svg", // Replace with actual image
+    image: "/lovable-uploads/32dd6604-37e8-4bc0-9991-5936833e0d5b.png",
     description: "Childhood friend who's always been like a brother to me."
   },
   {
     name: "Michael Johnson",
     role: "Groomsman",
-    image: "/placeholder.svg", // Replace with actual image
+    image: "/lovable-uploads/8483aa87-840c-447b-bab9-93457f707eff.png",
     description: "College roommate and confidant through all life's challenges."
   },
   {
     name: "David Wilson",
     role: "Groomsman",
-    image: "/placeholder.svg", // Replace with actual image
+    image: "/lovable-uploads/0e4a22be-3fce-4193-b40f-9c3aa9573b5d.png",
     description: "Friend since high school who knows all my embarrassing stories."
   },
   {
     name: "Robert Taylor",
     role: "Groomsman",
-    image: "/placeholder.svg", // Replace with actual image
+    image: "/lovable-uploads/6853d055-df68-4a09-a6e5-9b71c2783165.png",
     description: "Work friend who's always ready for an adventure."
   }
 ];
@@ -66,7 +66,7 @@ const WeddingParty = () => {
       <Hero
         title="Wedding Party"
         subtitle="Meet our wonderful support team"
-        image="/placeholder.svg" // Replace with actual image
+        image="/lovable-uploads/ac09c5c0-cc9e-4cdb-8a3a-d085a7a5ce08.png"
         date={weddingDate}
         showCountdown={false}
       />

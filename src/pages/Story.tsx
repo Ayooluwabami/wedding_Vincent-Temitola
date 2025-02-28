@@ -12,7 +12,7 @@ const Story = () => {
       <Hero
         title="Our Story"
         subtitle="How We Met & Fell in Love"
-        image="/placeholder.svg" // Replace with actual image
+        image="/lovable-uploads/8880cfd1-7f37-4098-b5e4-3128239803bb.png"
         date={weddingDate}
         showCountdown={false}
       />
@@ -64,7 +64,7 @@ const Story = () => {
           </div>
           
           <AnimatedImage
-            src="/placeholder.svg" // Replace with actual image
+            src="/lovable-uploads/cc361c12-3011-49ba-8d4b-cab42ee07b3e.png"
             alt="Vincent and Temitola"
             className="rounded-lg shadow-lg h-96 lg:h-[500px]"
           />
@@ -81,14 +81,14 @@ const Story = () => {
               year="2023" 
               title="The Beginning" 
               description="Our first encounter through a mutual friend's recommendation."
-              image="/placeholder.svg" // Replace with actual image
+              image="/lovable-uploads/2a4bc038-ca03-4d80-b398-eeb5b61765db.png"
             />
             
             <TimelineItem 
               year="2023" 
               title="First Date" 
               description="Our memorable first date in Akure that solidified our connection."
-              image="/placeholder.svg" // Replace with actual image
+              image="/lovable-uploads/e3a5910d-a91a-4b80-918d-e993e87eed85.png"
               isRight
             />
             
@@ -96,14 +96,14 @@ const Story = () => {
               year="2024" 
               title="The Proposal" 
               description="A magical moment when Vincent asked Temitola to spend forever with him."
-              image="/placeholder.svg" // Replace with actual image
+              image="/lovable-uploads/f7bc1b85-7131-4e3c-8426-05633ca98607.png"
             />
             
             <TimelineItem 
               year="2025" 
               title="Our Wedding" 
               description="The beginning of our forever as we unite in marriage in Akure."
-              image="/placeholder.svg" // Replace with actual image
+              image="/lovable-uploads/7fb4f864-5536-49ba-9cb9-ccf138736f59.png"
               isRight
             />
           </div>
