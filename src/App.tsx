@@ -9,7 +9,6 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Story from "./pages/Story";
-import Tidbits from "./pages/Tidbits";
 import Gifts from "./pages/Gifts";
 import Schedule from "./pages/Schedule";
 import Venue from "./pages/Venue";
@@ -29,9 +28,6 @@ const MobileScrollView = () => {
       </div>
       <div id="story" className="min-h-screen scroll-mt-16">
         <Story />
-      </div>
-      <div id="tidbits" className="min-h-screen scroll-mt-16">
-        <Tidbits />
       </div>
       <div id="gifts" className="min-h-screen scroll-mt-16">
         <Gifts />
@@ -89,7 +85,6 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/story" element={<Story />} />
-                <Route path="/tidbits" element={<Tidbits />} />
                 <Route path="/gifts" element={<Gifts />} />
                 <Route path="/schedule" element={<Schedule />} />
                 <Route path="/venue" element={<Venue />} />

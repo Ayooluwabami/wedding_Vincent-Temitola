@@ -25,7 +25,7 @@ const Home = () => {
   const CustomTitle = () => (
     <div className="flex items-center justify-center">
       <span className="font-playfair">Vincent</span>
-      <span className="text-wedding-gold mx-2 font-playfair italic">&</span>
+      <span className="text-wedding-rose mx-2 font-playfair italic">&</span>
       <span className="font-playfair">Temitola</span>
     </div>
   );

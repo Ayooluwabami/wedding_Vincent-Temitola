@@ -7,9 +7,8 @@ import { Menu, X } from 'lucide-react';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Our Story', path: '/story' },
-  { name: 'Tidbits', path: '/tidbits' },
-  { name: 'Gifts', path: '/gifts' },
   { name: 'Schedule', path: '/schedule' },
+  { name: 'Gifts', path: '/gifts' },
   { name: 'Venue', path: '/venue' },
   { name: 'Q & A', path: '/faq' },
   { name: 'Wedding Party', path: '/wedding-party' },

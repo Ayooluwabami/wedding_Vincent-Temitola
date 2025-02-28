@@ -81,7 +81,7 @@ const TimeUnit = ({ label, value }: { label: string; value: string }) => {
       <div className="bg-gradient-to-br from-white to-wedding-cream w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center mb-1 rounded-lg border border-wedding-gold/20 shadow-md backdrop-blur-sm">
         <span className="font-playfair text-2xl sm:text-3xl md:text-4xl font-semibold text-wedding-charcoal">{value}</span>
       </div>
-      <span className="text-xs uppercase font-montserrat tracking-wider text-wedding-gold font-medium">{label}</span>
+      <span className="text-xs sm:text-sm md:text-base text-wedding-cream font-cormorant uppercase tracking-wider">{label}</span>
     </motion.div>
   );
 };
