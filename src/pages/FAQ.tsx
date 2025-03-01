@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
@@ -146,7 +145,6 @@ const FAQ = () => {
           </div>
         </div>
 
-        {/* Scroll to top button */}
         <div className="flex justify-center mt-8">
           <button 
             onClick={scrollToTop}
@@ -170,25 +168,23 @@ const FAQ = () => {
             viewport={{ once: true }}
             className="glass-card p-6"
           >
-            <h3 className="font-playfair text-xl font-semibold mb-4 text-wedding-charcoal">Wedding Coordinators</h3>
+            <h3 className="font-playfair text-xl font-semibold mb-4 text-wedding-charcoal">RSVP</h3>
             <div className="space-y-4">
               <div>
-                <h4 className="font-medium text-wedding-gold">Mrs. Abimbola Johnson</h4>
-                <p className="text-wedding-charcoal/80">+234 801 234 5678</p>
-                <p className="text-wedding-charcoal/80">abimbola@example.com</p>
+                <h4 className="font-medium text-wedding-gold">Temitade Olowookere</h4>
+                <p className="text-wedding-charcoal/80">+2349037312540</p>
               </div>
               
               <div>
-                <h4 className="font-medium text-wedding-gold">Mr. Kayode Adebayo</h4>
-                <p className="text-wedding-charcoal/80">+234 802 345 6789</p>
-                <p className="text-wedding-charcoal/80">kayode@example.com</p>
+                <h4 className="font-medium text-wedding-gold">Precious Faseyosan</h4>
+                <p className="text-wedding-charcoal/80">+2347034952994</p>
               </div>
             </div>
             
             <div className="mt-6 pt-6 border-t border-wedding-cream">
               <h4 className="font-medium text-wedding-gold mb-2">For Urgent Matters</h4>
               <p className="text-wedding-charcoal/80">
-                Please contact our coordinators at least 48 hours before the event for any urgent
+                Please contact us at least 48 hours before the event for any urgent
                 questions or special arrangements.
               </p>
             </div>
@@ -201,7 +197,6 @@ const FAQ = () => {
           />
         </div>
 
-        {/* Scroll to top button */}
         <div className="flex justify-center mt-8">
           <button 
             onClick={scrollToTop}
