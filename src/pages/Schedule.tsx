@@ -19,10 +19,18 @@ const createEventDate = (baseDate: Date, timeString: string): Date => {
 
 // Create calendar event data
 const createCalendarEvent = (title: string, date: Date, duration: number = 2, location: string = '') => {
+  const eventDate = format(date, 'yyyy-MM-dd');
+  const startTime = format(date, 'HH:mm');
+  const endDate = format(addHours(date, duration), 'yyyy-MM-dd');
+  const endTime = format(addHours(date, duration), 'HH:mm');
+  
   return {
     name: title,
-    startDate: format(date, "yyyy-MM-dd'T'HH:mm:ss"),
-    endDate: format(addHours(date, duration), "yyyy-MM-dd'T'HH:mm:ss"),
+    description: `Join us for ${title}`,
+    startDate: eventDate,
+    endDate: endDate,
+    startTime: startTime,
+    endTime: endTime,
     location: location
   };
 };
@@ -43,7 +51,7 @@ const Schedule = () => {
       title: 'Traditional Wedding Ceremony',
       description: 'Join us for a beautiful Yoruba traditional wedding ceremony.',
       location: 'The Dome, Akure',
-      date: createEventDate(traditionalDate, '10:00'),
+      date: format(createEventDate(traditionalDate, '10:00'), 'MMMM d, yyyy'),
       calendarEvent: createCalendarEvent('Vincent & Temitola Traditional Wedding', createEventDate(traditionalDate, '10:00'), 3, 'The Dome, Akure')
     },
     {
@@ -51,7 +59,7 @@ const Schedule = () => {
       title: 'Traditional Wedding Reception',
       description: 'Celebrate with us with traditional food, music, and dancing.',
       location: 'The Dome, Akure',
-      date: createEventDate(traditionalDate, '13:30'),
+      date: format(createEventDate(traditionalDate, '13:30'), 'MMMM d, yyyy'),
       calendarEvent: createCalendarEvent('Vincent & Temitola Traditional Wedding Reception', createEventDate(traditionalDate, '13:30'), 4, 'The Dome, Akure')
     },
     {
@@ -59,7 +67,7 @@ const Schedule = () => {
       title: 'After Party',
       description: 'Continue the celebration with close friends and family.',
       location: 'Private Venue',
-      date: createEventDate(traditionalDate, '19:00'),
+      date: format(createEventDate(traditionalDate, '19:00'), 'MMMM d, yyyy'),
       calendarEvent: createCalendarEvent('Vincent & Temitola Wedding After Party', createEventDate(traditionalDate, '19:00'), 4, 'Private Venue')
     },
   ];
@@ -71,7 +79,7 @@ const Schedule = () => {
       title: 'Wedding Ceremony',
       description: 'Witness our vows to each other in this beautiful ceremony.',
       location: 'St. Thomas Catholic Church, Akure',
-      date: createEventDate(weddingDate, '11:00'),
+      date: format(createEventDate(weddingDate, '11:00'), 'MMMM d, yyyy'),
       calendarEvent: createCalendarEvent('Vincent & Temitola Wedding Ceremony', createEventDate(weddingDate, '11:00'), 2, 'St. Thomas Catholic Church, Akure')
     },
     {
@@ -79,7 +87,7 @@ const Schedule = () => {
       title: 'Cocktail Hour',
       description: 'Enjoy drinks and hors d\'oeuvres while we take photos.',
       location: 'Grand Pavilion Event Center',
-      date: createEventDate(weddingDate, '13:30'),
+      date: format(createEventDate(weddingDate, '13:30'), 'MMMM d, yyyy'),
       calendarEvent: createCalendarEvent('Vincent & Temitola Wedding Cocktail Hour', createEventDate(weddingDate, '13:30'), 1, 'Grand Pavilion Event Center')
     },
     {
@@ -87,7 +95,7 @@ const Schedule = () => {
       title: 'Wedding Reception',
       description: 'Join us for dinner, toasts, and dancing.',
       location: 'Grand Pavilion Event Center',
-      date: createEventDate(weddingDate, '14:30'),
+      date: format(createEventDate(weddingDate, '14:30'), 'MMMM d, yyyy'),
       calendarEvent: createCalendarEvent('Vincent & Temitola Wedding Reception', createEventDate(weddingDate, '14:30'), 5, 'Grand Pavilion Event Center')
     },
     {
@@ -95,7 +103,7 @@ const Schedule = () => {
       title: 'After Party',
       description: 'Continue the celebration with dancing and music.',
       location: 'Grand Pavilion Event Center',
-      date: createEventDate(weddingDate, '20:00'),
+      date: format(createEventDate(weddingDate, '20:00'), 'MMMM d, yyyy'),
       calendarEvent: createCalendarEvent('Vincent & Temitola Wedding After Party', createEventDate(weddingDate, '20:00'), 4, 'Grand Pavilion Event Center')
     },
   ];
