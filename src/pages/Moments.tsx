@@ -49,6 +49,13 @@ const Moments = () => {
     document.body.style.overflow = 'auto';
   };
 
+  const getFilenameFromUrl = (url: string) => {
+    // Extract just the filename without full path
+    const parts = url.split('/');
+    const filename = parts[parts.length - 1].split('.')[0].substring(0, 10);
+    return `vincent-temitola-${filename}`;
+  };
+
   return (
     <>
       <Hero
@@ -76,10 +83,11 @@ const Moments = () => {
               onClick={() => openLightbox(image)}
             >
               <div className="relative overflow-hidden rounded-lg aspect-square">
-                <img
+                <AnimatedImage
                   src={image}
                   alt={`Vincent and Temitola - photo ${index + 1}`}
                   className="w-full h-full object-cover transition-all duration-500"
+                  downloadable={true}
                 />
                 <div className="gallery-caption absolute inset-0 flex items-center justify-center">
                   <span className="text-white text-sm font-medium px-2 py-1 rounded bg-black/30">
@@ -121,6 +129,14 @@ const Moments = () => {
               alt="Enlarged view"
               className="w-full h-full object-contain"
             />
+            <a
+              href={selectedImage}
+              download={getFilenameFromUrl(selectedImage)}
+              className="absolute bottom-4 right-4 bg-wedding-gold hover:bg-wedding-gold/80 text-white px-4 py-2 rounded-full shadow-lg transition-all duration-300"
+              onClick={(e) => e.stopPropagation()}
+            >
+              Download
+            </a>
           </motion.div>
         </motion.div>
       )}
@@ -145,11 +161,13 @@ const Moments = () => {
               src="/lovable-uploads/571a7bbb-d095-4ec6-9e72-7fa4c716aa96.png"
               alt="Vincent and Temitola special moment"
               className="rounded-lg h-96"
+              downloadable={true}
             />
             <AnimatedImage
               src="/lovable-uploads/efb8700e-f1b0-460f-857d-a4e5425c8fc1.png"
               alt="Vincent and Temitola in traditional attire"
               className="rounded-lg h-96"
+              downloadable={true}
             />
           </div>
         </div>
