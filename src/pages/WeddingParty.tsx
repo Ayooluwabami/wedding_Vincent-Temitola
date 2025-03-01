@@ -17,10 +17,7 @@ const bridalParty = [
     role: "Little Bride",
     image: "/lovable-uploads/0227836e-a82b-4368-8771-49c062f132ea.png",
     description: "Our adorable little bride who will lead with grace and charm."
-  }
-];
-
-const groomsmen = [
+  },
   {
     name: "Akinnifesi Emmanuel",
     role: "Best Man",
@@ -39,11 +36,11 @@ const WeddingParty = () => {
     });
   };
   
-  // Custom title with styled ampersand
+  // Custom title with styled Wedding and Party
   const CustomTitle = () => (
     <div className="flex items-center justify-center">
       <span className="font-playfair">Wedding</span>
-      <span className="text-[#d0879e] mx-2 font-playfair italic">Party</span>
+      <span className="text-wedding-charcoal mx-2 font-playfair italic">Party</span>
     </div>
   );
 
@@ -58,41 +55,12 @@ const WeddingParty = () => {
       />
       
       <Section
-        title="Bridal Party"
-        subtitle="Temitola's amazing support team"
+        title="Wedding Party"
+        subtitle="Our amazing support team"
         className="bg-wedding-cream/20"
       >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {bridalParty.map((person, index) => (
-            <PersonCard 
-              key={index}
-              name={person.name}
-              role={person.role}
-              image={person.image}
-              description={person.description}
-              index={index}
-            />
-          ))}
-        </div>
-
-        {/* Scroll to top button */}
-        <div className="flex justify-center mt-8">
-          <button 
-            onClick={scrollToTop}
-            className="bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
-            aria-label="Scroll to top"
-          >
-            <ChevronUp size={24} />
-          </button>
-        </div>
-      </Section>
-      
-      <Section
-        title="Groomsmen"
-        subtitle="Vincent's incredible support team"
-      >
-        <div className="grid grid-cols-1 max-w-md mx-auto">
-          {groomsmen.map((person, index) => (
             <PersonCard 
               key={index}
               name={person.name}

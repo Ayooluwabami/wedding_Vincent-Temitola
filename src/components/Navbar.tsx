@@ -57,11 +57,11 @@ const Navbar = () => {
   }`;
 
   const logoTextClasses = `font-cormorant font-semibold tracking-wider transition-all duration-300 ${
-    isScrolled ? 'text-wedding-charcoal' : 'text-white'
+    isScrolled ? 'text-wedding-charcoal' : 'text-wedding-charcoal'
   }`;
 
   const linkTextClasses = `font-montserrat text-xs md:text-sm uppercase tracking-wider font-medium transition-colors duration-300 ${
-    isScrolled ? 'text-wedding-charcoal' : 'text-white'
+    isScrolled ? 'text-wedding-charcoal' : 'text-wedding-charcoal'
   }`;
 
   return (
@@ -107,9 +107,9 @@ const Navbar = () => {
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMenuOpen ? (
-              <X size={24} className={isScrolled ? 'text-wedding-charcoal' : 'text-white'} />
+              <X size={24} className="text-wedding-charcoal" />
             ) : (
-              <Menu size={24} className={isScrolled ? 'text-wedding-charcoal' : 'text-white'} />
+              <Menu size={24} className="text-wedding-charcoal" />
             )}
           </button>
         </div>
