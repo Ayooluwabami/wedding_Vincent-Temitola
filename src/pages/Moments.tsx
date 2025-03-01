@@ -154,52 +154,6 @@ const Moments = () => {
           </div>
         </div>
       </Section>
-      
-      <Section
-        className="bg-wedding-beige/10"
-        fullWidth
-      >
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="text-center mb-12">
-            <motion.h2 
-              className="section-title mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              Our Engagement Shoot
-            </motion.h2>
-            <motion.p 
-              className="section-subtitle"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              A glimpse into our pre-wedding celebrations
-            </motion.p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <AnimatedImage
-              src="/lovable-uploads/78927c9a-1c97-430b-a15a-f31db67707a9.png"
-              alt="Vincent and Temitola engagement photo 1"
-              className="aspect-square md:aspect-auto md:h-80 rounded-lg"
-            />
-            <AnimatedImage
-              src="/lovable-uploads/a1304f55-2b0b-4fe7-bda1-94862464d88b.png"
-              alt="Vincent and Temitola engagement photo 2"
-              className="aspect-square md:aspect-auto md:h-80 rounded-lg"
-            />
-            <AnimatedImage
-              src="/lovable-uploads/f7e9c3db-a15f-45fd-abe8-c24b74d628d2.png"
-              alt="Vincent and Temitola engagement photo 3"
-              className="aspect-square md:aspect-auto md:h-80 rounded-lg"
-            />
-          </div>
-        </div>
-      </Section>
     </>
   );
 };

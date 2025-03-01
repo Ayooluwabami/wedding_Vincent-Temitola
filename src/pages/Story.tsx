@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
@@ -105,17 +104,6 @@ const Story = () => {
               <p className="text-wedding-charcoal/80">
                 After months of getting to know each other, Vincent officially asked Temitola to be his girlfriend. 
                 With hearts full of hope and excitement, they embarked on their journey together.
-              </p>
-            </div>
-          </div>
-          
-          <div className="timeline-item">
-            <div className="timeline-date">August 2022</div>
-            <div className="glass-card p-5 mb-8">
-              <h3 className="font-playfair text-xl font-semibold mb-2 text-wedding-charcoal">Moving In Together</h3>
-              <p className="text-wedding-charcoal/80">
-                They decided to take the next step in their relationship and move in together. Creating their first 
-                home was an adventure filled with laughter, compromise, and deepening their bond.
               </p>
             </div>
           </div>
