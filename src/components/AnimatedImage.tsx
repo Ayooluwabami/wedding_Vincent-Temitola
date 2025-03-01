@@ -1,77 +1,86 @@
 
-import { useRef, useEffect, useState, ImgHTMLAttributes } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { Download } from 'lucide-react';
 
-interface AnimatedImageProps extends ImgHTMLAttributes<HTMLImageElement> {
+interface AnimatedImageProps {
   src: string;
   alt: string;
   className?: string;
-  placeholderSrc?: string;
+  delay?: number;
+  downloadable?: boolean;
 }
 
 const AnimatedImage = ({ 
   src, 
   alt, 
   className = '', 
-  placeholderSrc,
-  ...props 
+  delay = 0,
+  downloadable = false
 }: AnimatedImageProps) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-  const imgRef = useRef<HTMLImageElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const imageRef = useRef<HTMLDivElement>(null);
+
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = src;
+    link.download = alt.replace(/\s+/g, '-').toLowerCase() + '.jpg';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   useEffect(() => {
-    if (imgRef.current && imgRef.current.complete) {
-      setIsLoaded(true);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (imageRef.current) {
+      observer.observe(imageRef.current);
     }
+
+    return () => {
+      observer.disconnect();
+    };
   }, []);
 
-  const handleLoad = () => {
-    setIsLoaded(true);
-  };
-
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      transition: { 
-        duration: 0.8, 
-        ease: [0.22, 1, 0.36, 1] 
-      } 
-    }
-  };
-
   return (
-    <motion.div
-      ref={ref}
+    <div 
+      ref={imageRef}
       className={`relative overflow-hidden ${className}`}
-      initial="hidden"
-      animate={inView && isLoaded ? "visible" : "hidden"}
-      variants={imageVariants}
     >
-      {placeholderSrc && !isLoaded && (
-        <img
-          src={placeholderSrc}
-          alt="loading placeholder"
-          className="absolute inset-0 w-full h-full object-cover transition-all duration-500 blur-md"
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={isVisible ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.7, delay: delay, ease: "easeOut" }}
+        className="w-full h-full"
+      >
+        <img 
+          src={src} 
+          alt={alt} 
+          className="w-full h-full object-cover image-hover-effect"
+          loading="lazy"
         />
-      )}
-      <img
-        ref={imgRef}
-        src={src}
-        alt={alt}
-        onLoad={handleLoad}
-        className={`w-full h-full object-cover transition-opacity duration-500 ${
-          isLoaded ? 'opacity-100' : 'opacity-0'
-        }`}
-        {...props}
-      />
-    </motion.div>
+
+        {downloadable && (
+          <button 
+            onClick={handleDownload}
+            className="absolute bottom-3 right-3 bg-white/80 hover:bg-white p-2 rounded-full shadow-md transition-all duration-300 hover:scale-110 z-10"
+            aria-label="Download image"
+          >
+            <Download size={18} className="text-wedding-charcoal" />
+          </button>
+        )}
+      </motion.div>
+    </div>
   );
 };
 

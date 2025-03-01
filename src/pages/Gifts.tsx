@@ -1,46 +1,135 @@
 
+import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
-import { motion } from 'framer-motion';
-import { Copy } from 'lucide-react';
-import { toast } from 'sonner';
+import AnimatedImage from '@/components/AnimatedImage';
+import { ChevronUp, Gift, Home, Plane } from 'lucide-react';
+
+const weddingDate = new Date('2025-04-25T11:00:00');
 
 const Gifts = () => {
-  const weddingDate = new Date('2025-04-25T11:00:00');
-
-  const handleCopy = (text: string, label: string) => {
-    navigator.clipboard.writeText(text);
-    toast.success(`${label} copied to clipboard!`);
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   };
+
+  const CustomTitle = () => (
+    <div className="flex items-center justify-center">
+      <span className="font-playfair">Gift</span>
+      <span className="text-[#d0879e] mx-2 font-playfair italic">Registry</span>
+    </div>
+  );
 
   return (
     <>
       <Hero
-        title="Gifts"
-        subtitle="Your presence is our present"
-        image="/placeholder.svg" // Replace with actual image
+        title={<CustomTitle />}
+        subtitle="Celebrating your generosity"
+        image="/lovable-uploads/efb8700e-f1b0-460f-857d-a4e5425c8fc1.png"
         date={weddingDate}
         showCountdown={false}
       />
       
       <Section
-        title="Gift Registry"
-        subtitle="Your support means the world to us"
+        title="Your Presence Is Our Present"
+        subtitle="A note on gifts"
         className="bg-wedding-cream/20"
       >
-        <div className="max-w-2xl mx-auto text-center mb-12">
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-lg text-wedding-charcoal/80"
-          >
-            Your presence at our wedding is the greatest gift of all. However, if you wish to honor us with a gift, 
-            we've provided some options below. We are grateful for your generosity and support as we begin this new chapter together.
-          </motion.p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="decorative-border p-6"
+            >
+              <p className="text-lg mb-6 text-wedding-charcoal/80">
+                Your presence at our wedding is the greatest gift of all. We are blessed to have 
+                friends and family who will travel from near and far to celebrate with us, and we 
+                understand the commitment that entails.
+              </p>
+              
+              <p className="text-lg mb-6 text-wedding-charcoal/80">
+                However, for those who have expressed an interest in giving a gift, we have created
+                a registry and also welcome traditional cash gifts (known as "Owo Ori" in Yoruba culture)
+                to help us begin our new life together.
+              </p>
+              
+              <p className="text-lg font-cormorant italic text-wedding-gold">
+                With love and gratitude,<br />
+                Vincent & Temitola
+              </p>
+            </motion.div>
+          </div>
+          
+          <AnimatedImage
+            src="/lovable-uploads/a1304f55-2b0b-4fe7-bda1-94862464d88b.png"
+            alt="Gift Registry"
+            className="h-80 rounded-lg shadow-lg decorative-border p-3"
+          />
         </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+        {/* Scroll to top button */}
+        <div className="flex justify-center mt-8">
+          <button 
+            onClick={scrollToTop}
+            className="bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+            aria-label="Scroll to top"
+          >
+            <ChevronUp size={24} />
+          </button>
+        </div>
+      </Section>
+      
+      <Section
+        title="Gift Options"
+        subtitle="Ways to celebrate our new beginning"
+      >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <GiftCard
+            icon={<Gift size={32} className="text-wedding-gold" />}
+            title="Gift Registry"
+            description="We have registered at several stores to help you find something we'll love."
+            link="https://www.example.com/registry"
+            buttonText="View Registry"
+          />
+          
+          <GiftCard
+            icon={<Plane size={32} className="text-wedding-gold" />}
+            title="Honeymoon Fund"
+            description="Contribute to our dream honeymoon in the Maldives."
+            link="https://www.example.com/honeymoon"
+            buttonText="Contribute"
+          />
+          
+          <GiftCard
+            icon={<Home size={32} className="text-wedding-gold" />}
+            title="Cash Gifts"
+            description="Traditional cash gifts (Owo Ori) to help us start our new life together."
+            link="https://www.example.com/cash"
+            buttonText="Send Gift"
+          />
+        </div>
+
+        {/* Scroll to top button */}
+        <div className="flex justify-center mt-8">
+          <button 
+            onClick={scrollToTop}
+            className="bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+            aria-label="Scroll to top"
+          >
+            <ChevronUp size={24} />
+          </button>
+        </div>
+      </Section>
+      
+      <Section
+        className="bg-wedding-beige/10"
+      >
+        <div className="max-w-3xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -48,105 +137,72 @@ const Gifts = () => {
             transition={{ duration: 0.6 }}
             className="glass-card p-8"
           >
-            <h3 className="font-playfair text-2xl font-semibold mb-6 text-wedding-charcoal">UK Bank Account</h3>
-            
-            <div className="space-y-4">
-              <div>
-                <p className="text-sm text-wedding-silver mb-1">Account Name</p>
-                <div className="flex items-center justify-between">
-                  <p className="font-medium text-wedding-charcoal">VINCENT FASEYOSAN</p>
-                  <button 
-                    onClick={() => handleCopy("VINCENT FASEYOSAN", "Account name")}
-                    className="text-wedding-gold hover:text-wedding-charcoal transition-colors"
-                    aria-label="Copy account name"
-                  >
-                    <Copy size={16} />
-                  </button>
-                </div>
-              </div>
-              
-              <div>
-                <p className="text-sm text-wedding-silver mb-1">Sort Code</p>
-                <div className="flex items-center justify-between">
-                  <p className="font-medium text-wedding-charcoal">04-00-03</p>
-                  <button 
-                    onClick={() => handleCopy("04-00-03", "Sort code")}
-                    className="text-wedding-gold hover:text-wedding-charcoal transition-colors"
-                    aria-label="Copy sort code"
-                  >
-                    <Copy size={16} />
-                  </button>
-                </div>
-              </div>
-              
-              <div>
-                <p className="text-sm text-wedding-silver mb-1">Account Number</p>
-                <div className="flex items-center justify-between">
-                  <p className="font-medium text-wedding-charcoal">40036703</p>
-                  <button 
-                    onClick={() => handleCopy("40036703", "Account number")}
-                    className="text-wedding-gold hover:text-wedding-charcoal transition-colors"
-                    aria-label="Copy account number"
-                  >
-                    <Copy size={16} />
-                  </button>
-                </div>
-              </div>
-              
-              <div>
-                <p className="text-sm text-wedding-silver mb-1">Bank</p>
-                <p className="font-medium text-wedding-charcoal">Monzo</p>
-              </div>
+            <div className="mb-4">
+              <img
+                src="/lovable-uploads/87e2b97f-0644-4a12-9739-298c718bc2a9.png" 
+                alt="Thank You" 
+                className="w-32 h-32 rounded-full mx-auto object-cover border-4 border-white shadow-md"
+              />
             </div>
+            
+            <h3 className="font-playfair text-2xl font-semibold mb-4 text-wedding-charcoal">Thank You</h3>
+            
+            <p className="text-wedding-charcoal/80 mb-4">
+              We are overwhelmed with gratitude for your love, support, and generosity. 
+              Your presence and gifts mean the world to us as we begin this new chapter together.
+            </p>
+            
+            <p className="font-cormorant italic text-xl text-wedding-gold">
+              With heartfelt thanks,<br />
+              Vincent & Temitola
+            </p>
           </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="glass-card p-8"
+        </div>
+
+        {/* Scroll to top button */}
+        <div className="flex justify-center mt-8">
+          <button 
+            onClick={scrollToTop}
+            className="bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+            aria-label="Scroll to top"
           >
-            <h3 className="font-playfair text-2xl font-semibold mb-6 text-wedding-charcoal">Nigeria Bank Account</h3>
-            
-            <div className="space-y-4">
-              <div>
-                <p className="text-sm text-wedding-silver mb-1">Account Number</p>
-                <div className="flex items-center justify-between">
-                  <p className="font-medium text-wedding-charcoal">3155792466</p>
-                  <button 
-                    onClick={() => handleCopy("3155792466", "Account number")}
-                    className="text-wedding-gold hover:text-wedding-charcoal transition-colors"
-                    aria-label="Copy account number"
-                  >
-                    <Copy size={16} />
-                  </button>
-                </div>
-              </div>
-              
-              <div>
-                <p className="text-sm text-wedding-silver mb-1">Bank</p>
-                <p className="font-medium text-wedding-charcoal">First Bank</p>
-              </div>
-              
-              <div>
-                <p className="text-sm text-wedding-silver mb-1">Account Name</p>
-                <div className="flex items-center justify-between">
-                  <p className="font-medium text-wedding-charcoal">Faseyosan Vincent</p>
-                  <button 
-                    onClick={() => handleCopy("Faseyosan Vincent", "Account name")}
-                    className="text-wedding-gold hover:text-wedding-charcoal transition-colors"
-                    aria-label="Copy account name"
-                  >
-                    <Copy size={16} />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+            <ChevronUp size={24} />
+          </button>
         </div>
       </Section>
     </>
+  );
+};
+
+interface GiftCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  link: string;
+  buttonText: string;
+}
+
+const GiftCard = ({ icon, title, description, link, buttonText }: GiftCardProps) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="glass-card p-6 text-center flex flex-col h-full"
+    >
+      <div className="mb-4 flex justify-center">{icon}</div>
+      <h3 className="font-playfair text-xl font-semibold mb-3 text-wedding-charcoal">{title}</h3>
+      <p className="text-wedding-charcoal/80 mb-6 flex-grow">{description}</p>
+      <a 
+        href={link} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="button-outline w-full"
+      >
+        {buttonText}
+      </a>
+    </motion.div>
   );
 };
 

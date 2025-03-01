@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import AnimatedImage from '@/components/AnimatedImage';
 import { motion } from 'framer-motion';
+import { ChevronUp } from 'lucide-react';
 
 const bridalParty = [
   {
@@ -16,18 +17,6 @@ const bridalParty = [
     role: "Little Bride",
     image: "/lovable-uploads/0227836e-a82b-4368-8771-49c062f132ea.png",
     description: "Our adorable little bride who will lead with grace and charm."
-  },
-  {
-    name: "Emily Johnson",
-    role: "Bridesmaid",
-    image: "/lovable-uploads/0af6a945-db0e-45a1-80c9-d36dbe2e8760.png",
-    description: "Cousin and partner in all adventures since we were little."
-  },
-  {
-    name: "Olivia Brown",
-    role: "Bridesmaid",
-    image: "/lovable-uploads/14cfc873-8532-4744-aa06-5a97ab7fd028.png",
-    description: "Work colleague turned friend who always makes me laugh."
   }
 ];
 
@@ -37,35 +26,24 @@ const groomsmen = [
     role: "Best Man",
     image: "/lovable-uploads/4bc1cbf0-5b3f-4be0-8df5-515133a688e1.png",
     description: "Childhood friend who's always been like a brother to me."
-  },
-  {
-    name: "Michael Johnson",
-    role: "Groomsman",
-    image: "/lovable-uploads/8483aa87-840c-447b-bab9-93457f707eff.png",
-    description: "College roommate and confidant through all life's challenges."
-  },
-  {
-    name: "David Wilson",
-    role: "Groomsman",
-    image: "/lovable-uploads/0e4a22be-3fce-4193-b40f-9c3aa9573b5d.png",
-    description: "Friend since high school who knows all my embarrassing stories."
-  },
-  {
-    name: "Robert Taylor",
-    role: "Groomsman",
-    image: "/lovable-uploads/6853d055-df68-4a09-a6e5-9b71c2783165.png",
-    description: "Work friend who's always ready for an adventure."
   }
 ];
 
 const WeddingParty = () => {
   const weddingDate = new Date('2025-04-25T11:00:00');
   
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+  
   // Custom title with styled ampersand
   const CustomTitle = () => (
     <div className="flex items-center justify-center">
       <span className="font-playfair">Wedding</span>
-      <span className="text-wedding-gold mx-2 font-playfair italic">Party</span>
+      <span className="text-[#d0879e] mx-2 font-playfair italic">Party</span>
     </div>
   );
 
@@ -84,7 +62,7 @@ const WeddingParty = () => {
         subtitle="Temitola's amazing support team"
         className="bg-wedding-cream/20"
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {bridalParty.map((person, index) => (
             <PersonCard 
               key={index}
@@ -96,13 +74,24 @@ const WeddingParty = () => {
             />
           ))}
         </div>
+
+        {/* Scroll to top button */}
+        <div className="flex justify-center mt-8">
+          <button 
+            onClick={scrollToTop}
+            className="bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+            aria-label="Scroll to top"
+          >
+            <ChevronUp size={24} />
+          </button>
+        </div>
       </Section>
       
       <Section
         title="Groomsmen"
         subtitle="Vincent's incredible support team"
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 max-w-md mx-auto">
           {groomsmen.map((person, index) => (
             <PersonCard 
               key={index}
@@ -113,6 +102,17 @@ const WeddingParty = () => {
               index={index}
             />
           ))}
+        </div>
+
+        {/* Scroll to top button */}
+        <div className="flex justify-center mt-8">
+          <button 
+            onClick={scrollToTop}
+            className="bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+            aria-label="Scroll to top"
+          >
+            <ChevronUp size={24} />
+          </button>
         </div>
       </Section>
       
@@ -155,9 +155,20 @@ const WeddingParty = () => {
               have been invaluable to us, and we are blessed to have you all in our lives.
             </p>
             <p className="font-cormorant italic text-xl text-wedding-gold">
-              With love, Vincent <span className="text-wedding-gold">&</span> Temitola
+              With love, Vincent <span className="text-[#d0879e]">&</span> Temitola
             </p>
           </motion.div>
+        </div>
+
+        {/* Scroll to top button */}
+        <div className="flex justify-center mt-8">
+          <button 
+            onClick={scrollToTop}
+            className="bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+            aria-label="Scroll to top"
+          >
+            <ChevronUp size={24} />
+          </button>
         </div>
       </Section>
     </>

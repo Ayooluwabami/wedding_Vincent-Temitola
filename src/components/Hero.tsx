@@ -2,6 +2,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, ReactNode } from 'react';
 import CountdownTimer from './CountdownTimer';
+import { ChevronUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface HeroProps {
   title: ReactNode;
@@ -55,6 +57,13 @@ const Hero = ({
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   // Ensure hero content is properly constrained
   return (
     <section className="relative h-screen overflow-hidden">
@@ -67,7 +76,7 @@ const Hero = ({
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
+            transition={{ duration: 1, ease: "easeOut" }}
             className="w-full h-full"
           >
             <img 
@@ -88,10 +97,10 @@ const Hero = ({
           className="max-w-3xl"
         >
           <motion.h3 
-            className="font-cormorant italic text-lg sm:text-xl md:text-2xl mb-2"
+            className="font-cormorant italic text-lg sm:text-xl md:text-2xl mb-2 font-bold"
             variants={itemVariants}
           >
-            {subtitle}
+            <span className="font-bold">{subtitle}</span>
           </motion.h3>
           
           <motion.div
@@ -100,9 +109,19 @@ const Hero = ({
           >
             {title}
           </motion.div>
+
+          <motion.p
+            className="font-cormorant italic text-lg sm:text-xl md:text-2xl mt-2 mb-6"
+            variants={itemVariants}
+          >
+            April 26, 2025 • Akure, Nigeria
+          </motion.p>
           
           {showCountdown && (
-            <motion.div variants={itemVariants}>
+            <motion.div 
+              variants={itemVariants}
+              className="mt-16"
+            >
               <CountdownTimer targetDate={date} className="mt-10" />
             </motion.div>
           )}
@@ -124,6 +143,15 @@ const Hero = ({
           ))}
         </div>
       )}
+
+      {/* Scroll to top button */}
+      <button 
+        onClick={scrollToTop}
+        className="absolute bottom-8 right-8 z-30 bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+        aria-label="Scroll to top"
+      >
+        <ChevronUp size={24} />
+      </button>
     </section>
   );
 };
