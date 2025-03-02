@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 
 interface SectionProps {
   id?: string;
-  title?: string;
+  title?: string | React.ReactNode;
   subtitle?: string;
   children: React.ReactNode;
   className?: string;
