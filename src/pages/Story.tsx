@@ -36,9 +36,9 @@ const Story = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <AnimatedImage
-            src="/lovable-uploads/bd602ca3-a2bd-4368-bee6-d4edbc652cc9.png"
-            alt="Vincent and Temitola on their first date"
-            className="rounded-lg h-80 md:h-96"
+            src="/lovable-uploads/fadc3c85-f98d-4557-bd53-685f9617436b.png"
+            alt="Vincent and Temitola sharing a moment together"
+            className="rounded-lg h-80 md:h-96 object-cover"
           />
           <div className="flex flex-col justify-center">
             <motion.h3 
@@ -62,7 +62,7 @@ const Story = () => {
           </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <div className="flex flex-col justify-center order-2 md:order-1">
             <motion.h3 
               initial={{ opacity: 0, y: 20 }}
@@ -86,8 +86,37 @@ const Story = () => {
           <AnimatedImage
             src="/lovable-uploads/c6dec023-94b9-4991-96e5-d6697a4e87e2.png"
             alt="Vincent and Temitola laughing together"
-            className="rounded-lg h-80 md:h-96 order-1 md:order-2"
+            className="rounded-lg h-80 md:h-96 object-cover order-1 md:order-2"
           />
+        </div>
+        
+        {/* Added third image and section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <AnimatedImage
+            src="/lovable-uploads/acd3f946-d6a8-482a-91bb-3fdf4913263c.png"
+            alt="Vincent and Temitola in traditional attire"
+            className="rounded-lg h-80 md:h-96 object-cover"
+          />
+          <div className="flex flex-col justify-center">
+            <motion.h3 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="font-playfair text-2xl md:text-3xl text-wedding-charcoal mb-4"
+            >
+              Celebrating Our Heritage
+            </motion.h3>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-wedding-charcoal/80"
+            >
+              Our cultural heritage forms an important part of who we are. We cherish and honor our traditions, embracing them as we build our future together. These traditions remind us of the values we hold dear: respect, family, commitment, and love that stands the test of time. As we prepare to unite our families, we celebrate the rich cultural tapestry that has shaped our individual journeys and will continue to guide our path forward.
+            </motion.p>
+          </div>
         </div>
 
         <div className="mt-12">
