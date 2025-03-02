@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, ReactNode } from 'react';
 import CountdownTimer from './CountdownTimer';
 import { ChevronUp } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 interface HeroProps {
   title: ReactNode;
@@ -24,6 +24,12 @@ const Hero = ({
 }: HeroProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const allImages = [image, ...(additionalImages || [])];
+  const location = useLocation();
+  
+  // Only show the Hero on the homepage
+  if (location.pathname !== '/' && location.pathname !== '/index') {
+    return null;
+  }
 
   useEffect(() => {
     // Change image every 5 seconds
@@ -51,7 +57,7 @@ const Hero = ({
       opacity: 1, 
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: [0.22, 1, 0.36, 1],
       }
     }
@@ -76,7 +82,7 @@ const Hero = ({
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             className="w-full h-full"
           >
             <img 

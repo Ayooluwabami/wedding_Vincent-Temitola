@@ -3,24 +3,24 @@ import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import AnimatedImage from '@/components/AnimatedImage';
+import { ChevronUp } from 'lucide-react';
 
 const Story = () => {
   const weddingDate = new Date('2025-04-25T11:00:00');
   
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+  
   return (
     <>
-      <Hero
+      <Section
         title="Our Story"
         subtitle="How our love story unfolded"
-        image="/lovable-uploads/2a4bc038-ca03-4d80-b398-eeb5b61765db.png"
-        date={weddingDate}
-        showCountdown={false}
-      />
-      
-      <Section
-        title="How We Met"
-        subtitle="A journey of love, friendship, and destiny"
-        className="bg-wedding-cream/20"
+        className="bg-wedding-cream/20 pt-24"
       >
         <div className="max-w-4xl mx-auto mb-12">
           <motion.p 
@@ -36,7 +36,7 @@ const Story = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <AnimatedImage
-            src="/lovable-uploads/e3a5910d-a91a-4b80-918d-e993e87eed85.png"
+            src="/lovable-uploads/bd602ca3-a2bd-4368-bee6-d4edbc652cc9.png"
             alt="Vincent and Temitola on their first date"
             className="rounded-lg h-80 md:h-96"
           />
@@ -48,7 +48,7 @@ const Story = () => {
               transition={{ duration: 0.6 }}
               className="font-playfair text-2xl md:text-3xl text-wedding-charcoal mb-4"
             >
-              First Encounter
+              Divine Encounter with Temitola
             </motion.h3>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ const Story = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-wedding-charcoal/80"
             >
-              We first met at a mutual friend's birthday celebration in London. From the moment we started talking, there was an undeniable connection and ease between us. Our conversations flowed naturally, and we quickly discovered how much we had in common.
+              Meeting Temitola was nothing short of a divine moment—one of those encounters that feel destined from the very start. It all began on an ordinary Sunday when my close friend, while passing through Akure on his way to Abuja, stopped by to visit. In the midst of our conversations, he casually mentioned someone he thought I should meet. He spoke of Temitola with such enthusiasm, hoping something beautiful might blossom between us.
             </motion.p>
           </div>
         </div>
@@ -84,10 +84,52 @@ const Story = () => {
             </motion.p>
           </div>
           <AnimatedImage
-            src="/lovable-uploads/cc361c12-3011-49ba-8d4b-cab42ee07b3e.png"
+            src="/lovable-uploads/c6dec023-94b9-4991-96e5-d6697a4e87e2.png"
             alt="Vincent and Temitola laughing together"
             className="rounded-lg h-80 md:h-96 order-1 md:order-2"
           />
+        </div>
+
+        <div className="mt-12">
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-wedding-charcoal/80 max-w-4xl mx-auto"
+          >
+            Curious—and maybe a little out of obligation to my friend—I decided to call her. That first conversation was magic. There was an instant connection, a warmth in her voice that made me want to keep talking. She was soft-spoken yet full of wisdom, respectful yet lively. It didn't take long before our conversations became the highlight of my days.
+          </motion.p>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-wedding-charcoal/80 max-w-4xl mx-auto mt-4"
+          >
+            As weeks went by, we grew closer. Then came the day she visited me in Akure. We went out on a date, and sitting across from her, seeing her smile, hearing her laugh—it hit me. This was it. Temitola wasn't just someone I liked; she was the one. She had the grace of a queen and the heart of someone who could build a home with me. That day, I became certain she would be the love of my life and the mother of my unborn children.
+          </motion.p>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-wedding-charcoal/80 max-w-4xl mx-auto mt-4"
+          >
+            Now, here we are, stronger and more in love than ever. Our journey together has been nothing short of a blessing, and with every step, I thank the stars—and my friend—for leading me to her.
+          </motion.p>
+          
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-wedding-charcoal/80 max-w-4xl mx-auto mt-6 text-right italic"
+          >
+            -Vincent.
+          </motion.p>
         </div>
       </Section>
       
@@ -142,7 +184,27 @@ const Story = () => {
             </div>
           </div>
         </div>
+
+        {/* Scroll to top button */}
+        <div className="flex justify-center mt-8">
+          <button 
+            onClick={scrollToTop}
+            className="bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+            aria-label="Scroll to top"
+          >
+            <ChevronUp size={24} />
+          </button>
+        </div>
       </Section>
+      
+      {/* Fixed button to scroll to top */}
+      <button 
+        onClick={scrollToTop}
+        className="fixed bottom-8 right-8 z-50 bg-wedding-gold/80 hover:bg-wedding-gold text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+        aria-label="Scroll to top"
+      >
+        <ChevronUp size={24} />
+      </button>
     </>
   );
 };

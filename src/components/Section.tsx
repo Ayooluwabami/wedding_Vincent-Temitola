@@ -31,9 +31,9 @@ const Section: React.FC<SectionProps> = ({
       opacity: 1, 
       y: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.5,
         ease: [0.22, 1, 0.36, 1],
-        staggerChildren: 0.2
+        staggerChildren: 0.15
       }
     }
   };
@@ -44,7 +44,7 @@ const Section: React.FC<SectionProps> = ({
       opacity: 1, 
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.4,
         ease: [0.22, 1, 0.36, 1],
       }
     }

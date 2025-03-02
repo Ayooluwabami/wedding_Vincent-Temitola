@@ -1,11 +1,16 @@
 
-import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import Map from '@/components/Map';
 import { motion } from 'framer-motion';
+import { ChevronUp } from 'lucide-react';
 
 const Venue = () => {
-  const weddingDate = new Date('2025-04-25T11:00:00');
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
   
   // Custom title with styled ampersand
   const CustomTitle = () => (
@@ -17,25 +22,17 @@ const Venue = () => {
 
   return (
     <>
-      <Hero
+      <Section
         title={<CustomTitle />}
         subtitle="Where we'll celebrate our special day"
-        image="/lovable-uploads/571a7bbb-d095-4ec6-9e72-7fa4c716aa96.png" 
-        date={weddingDate}
-        showCountdown={false}
-      />
-      
-      <Section
-        title="Wedding Venues"
-        subtitle="Join us at these beautiful locations"
-        className="bg-wedding-cream/20"
+        className="bg-wedding-cream/20 pt-24"
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.4 }}
             className="glass-card p-6 hover:shadow-xl transition-all duration-300 border-l-4 border-wedding-gold"
           >
             <h3 className="font-playfair text-2xl font-semibold mb-4 text-wedding-charcoal">Traditional Wedding</h3>
@@ -45,7 +42,7 @@ const Venue = () => {
                 latitude={7.2571} 
                 longitude={5.2058} 
                 name="Traditional Wedding Venue" 
-                address="Akure, Ondo State, Nigeria" 
+                address="Dejavu hall, Elshadii road, Alagbaka, Akure" 
               />
             </div>
             
@@ -54,8 +51,8 @@ const Venue = () => {
                 <span className="text-wedding-gold mr-2">⟡</span>
                 Friday, April 25, 2025
               </p>
-              <p className="text-wedding-charcoal/80 pl-6">11:00 AM to 3:00 PM</p>
-              <p className="text-wedding-charcoal/80 pl-6 italic">Akure, Ondo State, Nigeria</p>
+              <p className="text-wedding-charcoal/80 pl-6">12:00 PM</p>
+              <p className="text-wedding-charcoal/80 pl-6 italic">Dejavu hall, Elshadii road, Alagbaka, Akure</p>
             </div>
           </motion.div>
           
@@ -63,17 +60,17 @@ const Venue = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.4, delay: 0.2 }}
             className="glass-card p-6 hover:shadow-xl transition-all duration-300 border-l-4 border-wedding-gold"
           >
-            <h3 className="font-playfair text-2xl font-semibold mb-4 text-wedding-charcoal">Wedding Reception & After-party</h3>
+            <h3 className="font-playfair text-2xl font-semibold mb-4 text-wedding-charcoal">Wedding Reception</h3>
             
             <div className="mb-6 overflow-hidden rounded-lg">
               <Map 
                 latitude={7.2571} 
                 longitude={5.2058} 
                 name="Reception Venue" 
-                address="Akure, Ondo State, Nigeria" 
+                address="Poju Hotel Event Center, Oda Road, Akure, Ondo state" 
               />
             </div>
             
@@ -82,9 +79,9 @@ const Venue = () => {
                 <span className="text-wedding-gold mr-2">⟡</span>
                 Saturday, April 26, 2025
               </p>
-              <p className="text-wedding-charcoal/80 pl-6">Reception: 11:00 AM to 3:00 PM</p>
-              <p className="text-wedding-charcoal/80 pl-6">After-party: 4:00 PM to 8:00 PM</p>
-              <p className="text-wedding-charcoal/80 pl-6 italic">Akure, Ondo State, Nigeria</p>
+              <p className="text-wedding-charcoal/80 pl-6">10:00 AM: Renewal of vows at Redeemed Christian Church of God, Akure</p>
+              <p className="text-wedding-charcoal/80 pl-6">1:00 PM: Reception at Poju Hotel Event Center</p>
+              <p className="text-wedding-charcoal/80 pl-6 italic">Poju Hotel Event Center, Oda Road, Akure, Ondo state</p>
             </div>
           </motion.div>
         </div>
@@ -100,14 +97,14 @@ const Venue = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4 }}
               className="bg-gradient-to-br from-white to-wedding-cream/30 p-6 rounded-lg shadow-md border border-wedding-gold/20 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
             >
-              <h3 className="font-playfair text-xl font-semibold mb-3 text-wedding-charcoal">Hotel Option 1</h3>
+              <h3 className="font-playfair text-xl font-semibold mb-3 text-wedding-charcoal">Poju Hotel</h3>
               <p className="text-wedding-charcoal/80 mb-4">
-                Luxury hotel with comfortable accommodations, located 5 minutes from the venue.
+                Comfortable accommodations conveniently located at the reception venue.
               </p>
-              <p className="italic text-wedding-silver">Akure, Ondo State, Nigeria</p>
+              <p className="italic text-wedding-silver">Oda Road, Akure, Ondo State</p>
               <a href="#" className="text-wedding-gold hover:text-wedding-charcoal mt-2 inline-block transition-colors">
                 View Details
               </a>
@@ -117,14 +114,14 @@ const Venue = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
               className="bg-gradient-to-br from-white to-wedding-cream/30 p-6 rounded-lg shadow-md border border-wedding-gold/20 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
             >
-              <h3 className="font-playfair text-xl font-semibold mb-3 text-wedding-charcoal">Hotel Option 2</h3>
+              <h3 className="font-playfair text-xl font-semibold mb-3 text-wedding-charcoal">Olympus Hotel</h3>
               <p className="text-wedding-charcoal/80 mb-4">
-                Cozy boutique hotel with excellent amenities, 10 minutes from the venue.
+                Elegant hotel with excellent amenities for your stay in Akure.
               </p>
-              <p className="italic text-wedding-silver">Akure, Ondo State, Nigeria</p>
+              <p className="italic text-wedding-silver">Alagbaka, Akure, Ondo State</p>
               <a href="#" className="text-wedding-gold hover:text-wedding-charcoal mt-2 inline-block transition-colors">
                 View Details
               </a>
@@ -138,6 +135,15 @@ const Venue = () => {
           </div>
         </div>
       </Section>
+      
+      {/* Fixed button to scroll to top */}
+      <button 
+        onClick={scrollToTop}
+        className="fixed bottom-8 right-8 z-50 bg-wedding-gold/80 hover:bg-wedding-gold text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+        aria-label="Scroll to top"
+      >
+        <ChevronUp size={24} />
+      </button>
     </>
   );
 };
