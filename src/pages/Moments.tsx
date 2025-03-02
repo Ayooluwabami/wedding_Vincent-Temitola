@@ -1,5 +1,3 @@
-
-import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import AnimatedImage from '@/components/AnimatedImage';
 import { motion } from 'framer-motion';
@@ -58,18 +56,10 @@ const Moments = () => {
 
   return (
     <>
-      <Hero
+      <Section
         title="Our Moments"
         subtitle="Capturing our journey together"
-        image="/lovable-uploads/2b1e28be-3440-4996-a112-ec40e565f577.png"
-        date={weddingDate}
-        showCountdown={false}
-      />
-      
-      <Section
-        title="Photo Gallery"
-        subtitle="Beautiful memories of our love story"
-        className="bg-wedding-cream/20"
+        className="bg-wedding-cream/20 pt-24"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {galleryImages.map((image, index) => (

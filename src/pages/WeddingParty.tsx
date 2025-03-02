@@ -1,5 +1,3 @@
-
-import Hero from '@/components/Hero';
 import Section from '@/components/Section';
 import AnimatedImage from '@/components/AnimatedImage';
 import { motion } from 'framer-motion';
@@ -46,18 +44,10 @@ const WeddingParty = () => {
 
   return (
     <>
-      <Hero
-        title={<CustomTitle />}
-        subtitle="Meet our wonderful support team"
-        image="/lovable-uploads/ac09c5c0-cc9e-4cdb-8a3a-d085a7a5ce08.png"
-        date={weddingDate}
-        showCountdown={false}
-      />
-      
       <Section
         title="Wedding Party"
-        subtitle="Our amazing support team"
-        className="bg-wedding-cream/20"
+        subtitle="Meet our wonderful support team"
+        className="bg-wedding-cream/20 pt-24"
       >
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {bridalParty.map((person, index) => (
