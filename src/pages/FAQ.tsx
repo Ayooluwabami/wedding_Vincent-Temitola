@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Hero from '@/components/Hero';
@@ -14,13 +15,18 @@ interface FAQItemProps {
 
 const FAQItem = ({ question, answer, isOpen, toggleOpen }: FAQItemProps) => {
   return (
-    <div className="mb-4">
+    <motion.div 
+      className="mb-4"
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+    >
       <button
         onClick={toggleOpen}
-        className="w-full flex justify-between items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+        className="w-full flex justify-between items-center p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-[#7a0f23]"
       >
         <h3 className="text-left font-playfair text-lg text-wedding-charcoal">{question}</h3>
-        <span className="ml-2 text-wedding-gold">
+        <span className="ml-2 text-[#2F6246]">
           {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
         </span>
       </button>
@@ -29,13 +35,13 @@ const FAQItem = ({ question, answer, isOpen, toggleOpen }: FAQItemProps) => {
         initial={{ height: 0, opacity: 0 }}
         animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
         transition={{ duration: 0.3 }}
-        className="overflow-hidden bg-white/80 rounded-b-lg px-4"
+        className="overflow-hidden bg-white/80 rounded-b-lg px-4 border-l-4 border-[#2F6246]"
       >
         <div className="py-4">
           <p className="text-wedding-charcoal/80">{answer}</p>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -51,7 +57,7 @@ const FAQ = () => {
   const faqItems = [
     {
       question: "What is the dress code for the wedding?",
-      answer: "For the traditional ceremony on April 25th, we encourage traditional Nigerian attire. For the wedding ceremony and reception on April 26th, formal attire is requested. Our colors are cream and gold for the wedding day."
+      answer: "For the traditional ceremony on April 25th, we encourage traditional Nigerian attire. For the wedding ceremony and reception on April 26th, formal attire is requested. Our colors are green and burgundy for the wedding day. This event is strictly by invitation."
     },
     {
       question: "Are children welcome at the wedding?",
@@ -93,7 +99,7 @@ const FAQ = () => {
   const CustomTitle = () => (
     <div className="flex items-center justify-center">
       <span className="font-playfair">Questions</span>
-      <span className="text-[#d0879e] mx-2 font-playfair italic">&</span>
+      <span className="text-[#7a0f23] mx-2 font-playfair italic">&</span>
       <span className="font-playfair">Answers</span>
     </div>
   );
@@ -111,7 +117,7 @@ const FAQ = () => {
       <Section
         title="Frequently Asked Questions"
         subtitle="Answers to your questions about our special day"
-        className="bg-wedding-cream/20"
+        className="bg-gradient-to-b from-white to-[#F2FCE2]/30"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-4">
@@ -127,11 +133,21 @@ const FAQ = () => {
           </div>
           
           <div className="space-y-4">
-            <AnimatedImage
-              src="/lovable-uploads/f7e9c3db-a15f-45fd-abe8-c24b74d628d2.png"
-              alt="Wedding questions"
-              className="h-64 rounded-lg shadow-lg object-cover mb-6 decorative-border p-3"
-            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="relative mb-6"
+            >
+              <AnimatedImage
+                src="/lovable-uploads/f7e9c3db-a15f-45fd-abe8-c24b74d628d2.png"
+                alt="Wedding questions"
+                className="h-64 rounded-lg shadow-lg object-cover decorative-border p-3"
+              />
+              <div className="absolute -bottom-3 -right-3 bg-[#7a0f23]/90 text-white py-2 px-4 rounded-lg text-sm font-cormorant italic shadow-lg">
+                Strictly by invitation
+              </div>
+            </motion.div>
             
             {faqItems.slice(4).map((item, index) => (
               <FAQItem
@@ -145,20 +161,30 @@ const FAQ = () => {
           </div>
         </div>
 
-        <div className="flex justify-center mt-8">
-          <button 
-            onClick={scrollToTop}
-            className="bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
-            aria-label="Scroll to top"
+        <div className="flex justify-center mt-12">
+          <motion.div
+            className="inline-block"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
           >
-            <ChevronUp size={24} />
-          </button>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#2F6246] to-[#7a0f23] blur-sm rounded-full"></div>
+              <button 
+                onClick={scrollToTop}
+                className="relative bg-white text-[#2F6246] p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-10"
+                aria-label="Scroll to top"
+              >
+                <ChevronUp size={24} />
+              </button>
+            </div>
+          </motion.div>
         </div>
       </Section>
       
       <Section
         title="Contact Us"
         subtitle="Still have questions? Get in touch"
+        className="bg-gradient-to-b from-[#F2FCE2]/30 to-white"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-4xl mx-auto">
           <motion.div
@@ -166,23 +192,23 @@ const FAQ = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="glass-card p-6"
+            className="glass-card p-6 border-l-4 border-[#2F6246]"
           >
-            <h3 className="font-playfair text-xl font-semibold mb-4 text-wedding-charcoal">RSVP</h3>
+            <h3 className="font-playfair text-xl font-semibold mb-4 text-[#7a0f23]">RSVP</h3>
             <div className="space-y-4">
               <div>
-                <h4 className="font-medium text-wedding-gold">Temitade Olowookere</h4>
+                <h4 className="font-medium text-[#2F6246]">Temitade Olowookere</h4>
                 <p className="text-wedding-charcoal/80">+2349037312540</p>
               </div>
               
               <div>
-                <h4 className="font-medium text-wedding-gold">Precious Faseyosan</h4>
+                <h4 className="font-medium text-[#2F6246]">Precious Faseyosan</h4>
                 <p className="text-wedding-charcoal/80">+2347034952994</p>
               </div>
             </div>
             
-            <div className="mt-6 pt-6 border-t border-wedding-cream">
-              <h4 className="font-medium text-wedding-gold mb-2">For Urgent Matters</h4>
+            <div className="mt-6 pt-6 border-t border-[#F2FCE2]">
+              <h4 className="font-medium text-[#7a0f23] mb-2">For Urgent Matters</h4>
               <p className="text-wedding-charcoal/80">
                 Please contact us at least 48 hours before the event for any urgent
                 questions or special arrangements.
@@ -197,14 +223,23 @@ const FAQ = () => {
           />
         </div>
 
-        <div className="flex justify-center mt-8">
-          <button 
-            onClick={scrollToTop}
-            className="bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
-            aria-label="Scroll to top"
+        <div className="flex justify-center mt-12">
+          <motion.div
+            className="inline-block"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.2 }}
           >
-            <ChevronUp size={24} />
-          </button>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#2F6246] to-[#7a0f23] blur-sm rounded-full"></div>
+              <button 
+                onClick={scrollToTop}
+                className="relative bg-white text-[#2F6246] p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-10"
+                aria-label="Scroll to top"
+              >
+                <ChevronUp size={24} />
+              </button>
+            </div>
+          </motion.div>
         </div>
       </Section>
     </>
