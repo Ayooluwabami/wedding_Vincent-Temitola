@@ -25,9 +25,9 @@ const Home = () => {
   // Custom title with styled ampersand
   const CustomTitle = () => (
     <div className="flex items-center justify-center">
-      <span className="font-playfair font-bold">Vincent</span>
-      <span className="text-[#d0879e] mx-2 font-playfair italic font-bold">&</span>
-      <span className="font-playfair font-bold">Temitola</span>
+      <span className="font-playfair font-bold text-[1.2em]">Vincent</span>
+      <span className="text-[#d0879e] mx-2 font-playfair italic font-bold text-[1.2em]">&</span>
+      <span className="font-playfair font-bold text-[1.2em]">Temitola</span>
     </div>
   );
 

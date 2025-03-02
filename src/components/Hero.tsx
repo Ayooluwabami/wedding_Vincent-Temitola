@@ -25,6 +25,7 @@ const Hero = ({
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const allImages = [image, ...(additionalImages || [])];
   const location = useLocation();
+  const [isMobile, setIsMobile] = useState(false);
   
   // Only show the Hero on the homepage
   if (location.pathname !== '/' && location.pathname !== '/index') {
@@ -32,13 +33,27 @@ const Hero = ({
   }
 
   useEffect(() => {
-    // Change image every 5 seconds
-    const interval = setInterval(() => {
+    // Check if device is mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Add resize listener
+    window.addEventListener('resize', checkMobile);
+    
+    // Change image every 5 seconds (only on desktop)
+    const interval = isMobile ? null : setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % allImages.length);
     }, 5000);
 
-    return () => clearInterval(interval);
-  }, [allImages.length]);
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      if (interval) clearInterval(interval);
+    };
+  }, [allImages.length, isMobile]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -72,27 +87,34 @@ const Hero = ({
 
   // Ensure hero content is properly constrained
   return (
-    <section className="relative h-screen overflow-hidden">
-      {/* Background Image with animation */}
-      <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/40 z-10" />
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentImageIndex}
-            initial={{ opacity: 0, scale: 1.1 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="w-full h-full"
-          >
-            <img 
-              src={allImages[currentImageIndex]} 
-              alt="Hero background" 
-              className="w-full h-full object-cover"
-            />
-          </motion.div>
-        </AnimatePresence>
-      </div>
+    <section className={`relative ${isMobile ? 'min-h-[50vh]' : 'h-screen'} overflow-hidden`}>
+      {/* Background Image with animation - only show on desktop */}
+      {!isMobile && (
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-black/40 z-10" />
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentImageIndex}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="w-full h-full"
+            >
+              <img 
+                src={allImages[currentImageIndex]} 
+                alt="Hero background" 
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      )}
+
+      {/* Mobile background - solid color gradient */}
+      {isMobile && (
+        <div className="absolute inset-0 bg-gradient-to-b from-wedding-charcoal to-wedding-charcoal/90 z-0" />
+      )}
 
       {/* Content */}
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center text-white px-4 container mx-auto">
@@ -110,7 +132,7 @@ const Hero = ({
           </motion.h3>
           
           <motion.div
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mb-6"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold mb-6"
             variants={itemVariants}
           >
             {title}
@@ -134,8 +156,8 @@ const Hero = ({
         </motion.div>
       </div>
       
-      {/* Navigation dots for the image carousel */}
-      {allImages.length > 1 && (
+      {/* Navigation dots for the image carousel - only show on desktop */}
+      {!isMobile && allImages.length > 1 && (
         <div className="absolute bottom-8 left-0 right-0 z-30 flex justify-center space-x-2">
           {allImages.map((_, index) => (
             <button
@@ -163,3 +185,4 @@ const Hero = ({
 };
 
 export default Hero;
+
