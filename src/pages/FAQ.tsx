@@ -15,7 +15,7 @@ interface FAQItemProps {
 
 const FAQItem = ({ question, answer, isOpen, toggleOpen }: FAQItemProps) => {
   return (
-    <motion.div 
+    <motion.div
       className="mb-4"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ const FAQItem = ({ question, answer, isOpen, toggleOpen }: FAQItemProps) => {
           {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
         </span>
       </button>
-      
+
       <motion.div
         initial={{ height: 0, opacity: 0 }}
         animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
@@ -49,11 +49,11 @@ const weddingDate = new Date('2025-04-25T11:00:00');
 
 const FAQ = () => {
   const [openItemIndex, setOpenItemIndex] = useState<number | null>(0);
-  
+
   const toggleItem = (index: number) => {
     setOpenItemIndex(openItemIndex === index ? null : index);
   };
-  
+
   const faqItems = [
     {
       question: "What is the dress code for the wedding?",
@@ -113,7 +113,7 @@ const FAQ = () => {
         date={weddingDate}
         showCountdown={false}
       />
-      
+
       <Section
         title="Frequently Asked Questions"
         subtitle="Answers to your questions about our special day"
@@ -131,7 +131,7 @@ const FAQ = () => {
               />
             ))}
           </div>
-          
+
           <div className="space-y-4">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -148,7 +148,7 @@ const FAQ = () => {
                 Strictly by invitation
               </div>
             </motion.div>
-            
+
             {faqItems.slice(4).map((item, index) => (
               <FAQItem
                 key={index + 4}
@@ -169,7 +169,7 @@ const FAQ = () => {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-[#2F6246] to-[#7a0f23] blur-sm rounded-full"></div>
-              <button 
+              <button
                 onClick={scrollToTop}
                 className="relative bg-white text-[#2F6246] p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-10"
                 aria-label="Scroll to top"
@@ -180,7 +180,7 @@ const FAQ = () => {
           </motion.div>
         </div>
       </Section>
-      
+
       <Section
         title="Contact Us"
         subtitle="Still have questions? Get in touch"
@@ -200,13 +200,13 @@ const FAQ = () => {
                 <h4 className="font-medium text-[#2F6246]">Temitade Olowookere</h4>
                 <p className="text-wedding-charcoal/80">+2349037312540</p>
               </div>
-              
+
               <div>
                 <h4 className="font-medium text-[#2F6246]">Precious Faseyosan</h4>
                 <p className="text-wedding-charcoal/80">+2347034952994</p>
               </div>
             </div>
-            
+
             <div className="mt-6 pt-6 border-t border-[#F2FCE2]">
               <h4 className="font-medium text-[#7a0f23] mb-2">For Urgent Matters</h4>
               <p className="text-wedding-charcoal/80">
@@ -215,7 +215,7 @@ const FAQ = () => {
               </p>
             </div>
           </motion.div>
-          
+
           <AnimatedImage
             src="/lovable-uploads/cc361c12-3011-49ba-8d4b-cab42ee07b3e.png"
             alt="Contact Us"
@@ -231,7 +231,7 @@ const FAQ = () => {
           >
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-[#2F6246] to-[#7a0f23] blur-sm rounded-full"></div>
-              <button 
+              <button
                 onClick={scrollToTop}
                 className="relative bg-white text-[#2F6246] p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 z-10"
                 aria-label="Scroll to top"

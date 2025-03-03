@@ -1,10 +1,11 @@
-import './index.css';
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { ChevronUp } from "lucide-react";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -53,21 +54,42 @@ const MobileScrollView = () => {
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   useEffect(() => {
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
 
-    // Initial check
-    checkIsMobile();
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollButton(true);
+      } else {
+        setShowScrollButton(false);
+      }
+    };
 
-    // Add event listener for window resize
+    // Initial checks
+    checkIsMobile();
+    handleScroll();
+
+    // Add event listeners
     window.addEventListener('resize', checkIsMobile);
+    window.addEventListener('scroll', handleScroll);
 
     // Clean up
-    return () => window.removeEventListener('resize', checkIsMobile);
+    return () => {
+      window.removeEventListener('resize', checkIsMobile);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -96,6 +118,17 @@ const App = () => {
             )}
           </main>
           <Footer />
+
+          {/* Global scroll to top button */}
+          {showScrollButton && (
+            <button
+              onClick={scrollToTop}
+              className="fixed bottom-8 right-8 z-50 bg-wedding-gold/80 hover:bg-wedding-gold text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+              aria-label="Scroll to top"
+            >
+              <ChevronUp size={24} />
+            </button>
+          )}
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

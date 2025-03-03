@@ -1,3 +1,4 @@
+
 import Section from '@/components/Section';
 import AnimatedImage from '@/components/AnimatedImage';
 import { motion } from 'framer-motion';
@@ -61,7 +62,7 @@ const Moments = () => {
         subtitle="Capturing our journey together"
         className="bg-wedding-cream/20 pt-24"
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {galleryImages.map((image, index) => (
             <motion.div
               key={index}
@@ -79,17 +80,12 @@ const Moments = () => {
                   className="w-full h-full object-cover transition-all duration-500"
                   downloadable={true}
                 />
-                <div className="gallery-caption absolute inset-0 flex items-center justify-center">
-                  <span className="text-white text-sm font-medium px-2 py-1 rounded bg-black/30">
-                    View Photo
-                  </span>
-                </div>
               </div>
             </motion.div>
           ))}
         </div>
       </Section>
-      
+
       {/* Lightbox */}
       {selectedImage && (
         <motion.div
@@ -130,7 +126,7 @@ const Moments = () => {
           </motion.div>
         </motion.div>
       )}
-      
+
       <Section
         title="Our Journey"
         subtitle="From the first hello to forever"
@@ -145,7 +141,7 @@ const Moments = () => {
           >
             These photos capture the essence of our relationship—the laughter, the love, and the journey that led us to say "yes" to forever. Each image tells a part of our story, from casual moments to special occasions, all leading up to our wedding day.
           </motion.p>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <AnimatedImage
               src="/lovable-uploads/571a7bbb-d095-4ec6-9e72-7fa4c716aa96.png"

@@ -5,28 +5,59 @@ import CountdownTimer from './CountdownTimer';
 import { ChevronUp } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
+// Add types for image customization
+type HeroImage = {
+  src: string;
+  backgroundSize?: string;
+  backgroundPosition?: string;
+};
+
 interface HeroProps {
   title: ReactNode;
   subtitle: string;
-  image: string;
-  additionalImages?: string[];
+  image: string | HeroImage;
+  additionalImages?: (string | HeroImage)[];
   date: Date;
   showCountdown?: boolean;
+  // Content positioning options
+  contentPositioning?: {
+    titleSize?: string;
+    subtitleMarginTop?: string;
+    subtitleMarginBottom?: string;
+    dateMarginTop?: string;
+    dateMarginBottom?: string;
+    countdownMarginTop?: string;
+  };
 }
 
-const Hero = ({ 
-  title, 
-  subtitle, 
-  image, 
-  additionalImages = [], 
-  date, 
-  showCountdown = true 
+const Hero = ({
+  title,
+  subtitle,
+  image,
+  additionalImages = [],
+  date,
+  showCountdown = true,
+  contentPositioning = {}
 }: HeroProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const allImages = [image, ...(additionalImages || [])];
+
+  // Process images to ensure they all have the HeroImage format
+  const processImages = (imgs: (string | HeroImage)[]) => {
+    return imgs.map(img => {
+      if (typeof img === 'string') {
+        return { src: img };
+      }
+      return img;
+    });
+  };
+
+  const mainImage = typeof image === 'string' ? { src: image } : image;
+  const processedAdditionalImages = processImages(additionalImages);
+  const allImages = [mainImage, ...processedAdditionalImages];
+
   const location = useLocation();
   const [isMobile, setIsMobile] = useState(false);
-  
+
   // Only show the Hero on the homepage
   if (location.pathname !== '/' && location.pathname !== '/index') {
     return null;
@@ -37,13 +68,13 @@ const Hero = ({
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     // Initial check
     checkMobile();
-    
+
     // Add resize listener
     window.addEventListener('resize', checkMobile);
-    
+
     // Change image every 5 seconds 
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % allImages.length);
@@ -57,7 +88,7 @@ const Hero = ({
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
       transition: {
         duration: 0.8,
@@ -68,8 +99,8 @@ const Hero = ({
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.4,
@@ -78,16 +109,19 @@ const Hero = ({
     }
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
+  // Set default values for content positioning
+  const {
+    titleSize = "text-3xl sm:text-4xl md:text-5xl lg:text-6xl",
+    subtitleMarginTop = "mt-12",
+    subtitleMarginBottom = "mb-6",
+    dateMarginTop = "mt-8",
+    dateMarginBottom = "mb-10",
+    countdownMarginTop = "mt-12"
+  } = contentPositioning;
 
-  // Ensure hero content is properly constrained
+  // Make hero taller on all devices
   return (
-    <section className={`relative ${isMobile ? 'min-h-[50vh]' : 'h-screen'} overflow-hidden`}>
+    <section className={`relative ${isMobile ? 'min-h-[75vh]' : 'min-h-screen'} overflow-hidden`}>
       {/* Background Image with animation - show on home page for all devices */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/40 z-10" />
@@ -100,79 +134,73 @@ const Hero = ({
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="w-full h-full"
           >
-            <img 
-              src={allImages[currentImageIndex]} 
-              alt="Hero background" 
-              className="w-full h-full object-cover"
+            <div
+              className="w-full h-full"
+              style={{
+                backgroundImage: `url(${allImages[currentImageIndex].src})`,
+                backgroundSize: allImages[currentImageIndex].backgroundSize || 'cover',
+                backgroundPosition: allImages[currentImageIndex].backgroundPosition || 'center',
+                backgroundRepeat: 'no-repeat'
+              }}
             />
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Content */}
-      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center text-white px-4 container mx-auto">
+      {/* Content - Customizable positioning */}
+      <div className="relative z-20 h-full flex flex-col items-center justify-center text-center text-white px-4 container mx-auto pt-12">
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           className="max-w-3xl"
         >
-          <motion.h3 
-            className="font-cormorant italic text-lg sm:text-xl md:text-2xl mb-2 font-bold"
+          <motion.h3
+            className={`font-cormorant italic text-lg sm:text-xl md:text-2xl ${subtitleMarginTop} ${subtitleMarginBottom} font-bold`}
             variants={itemVariants}
           >
             <span className="font-bold">{subtitle}</span>
           </motion.h3>
-          
+
           <motion.div
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold mb-6"
+            className={`${titleSize} font-semibold mb-8`}
             variants={itemVariants}
           >
             {title}
           </motion.div>
 
           <motion.p
-            className="font-cormorant italic text-lg sm:text-xl md:text-2xl mt-2 mb-6"
+            className={`font-cormorant italic text-lg sm:text-xl md:text-2xl ${dateMarginTop} ${dateMarginBottom}`}
             variants={itemVariants}
           >
             April 26, 2025 • Akure, Nigeria
           </motion.p>
-          
+
           {showCountdown && (
-            <motion.div 
+            <motion.div
               variants={itemVariants}
-              className="mt-16"
+              className={countdownMarginTop}
             >
-              <CountdownTimer targetDate={date} className="mt-10" />
+              <CountdownTimer targetDate={date} className="mt-4" />
             </motion.div>
           )}
         </motion.div>
       </div>
-      
+
       {/* Navigation dots for the image carousel */}
       {allImages.length > 1 && (
         <div className="absolute bottom-8 left-0 right-0 z-30 flex justify-center space-x-2">
           {allImages.map((_, index) => (
             <button
               key={index}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentImageIndex ? 'bg-white scale-125' : 'bg-white/50'
-              }`}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImageIndex ? 'bg-white scale-125' : 'bg-white/50'
+                }`}
               onClick={() => setCurrentImageIndex(index)}
               aria-label={`View image ${index + 1}`}
             />
           ))}
         </div>
       )}
-
-      {/* Scroll to top button */}
-      <button 
-        onClick={scrollToTop}
-        className="absolute bottom-8 right-8 z-30 bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
-        aria-label="Scroll to top"
-      >
-        <ChevronUp size={24} />
-      </button>
     </section>
   );
 };

@@ -19,7 +19,7 @@ const createCalendarEvent = (title: string, date: Date, duration: number = 2, lo
   const startTime = format(date, 'HH:mm');
   const endDate = format(addHours(date, duration), 'yyyy-MM-dd');
   const endTime = format(addHours(date, duration), 'HH:mm');
-  
+
   return {
     name: title,
     description: `Join us for ${title}`,
@@ -49,9 +49,9 @@ const Schedule = () => {
       location: 'Dejavu hall, Elshadii road, Alagbaka, Akure',
       date: format(traditionalDate, 'MMMM d, yyyy'),
       calendarEvent: createCalendarEvent(
-        'Vincent & Temitola Traditional Wedding', 
-        traditionalDate, 
-        5, 
+        'Vincent & Temitola Traditional Wedding',
+        traditionalDate,
+        5,
         'Dejavu hall, Elshadii road, Alagbaka, Akure'
       )
     }
@@ -60,7 +60,7 @@ const Schedule = () => {
   // White Wedding Events (Day 2)
   const churchDate = createEventDate('26/04/2025', '10:00');
   const receptionDate = createEventDate('26/04/2025', '13:00');
-  
+
   const whiteWeddingEvents = [
     {
       time: '10:00',
@@ -69,9 +69,9 @@ const Schedule = () => {
       location: 'Redeemed Christian Church of God, Akure',
       date: format(churchDate, 'MMMM d, yyyy'),
       calendarEvent: createCalendarEvent(
-        'Vincent & Temitola Wedding Ceremony', 
-        churchDate, 
-        2, 
+        'Vincent & Temitola Wedding Ceremony',
+        churchDate,
+        2,
         'Redeemed Christian Church of God, Akure'
       )
     },
@@ -82,9 +82,9 @@ const Schedule = () => {
       location: 'Poju Hotel Event Center, Oda Road, Akure, Ondo state',
       date: format(receptionDate, 'MMMM d, yyyy'),
       calendarEvent: createCalendarEvent(
-        'Vincent & Temitola Wedding Reception', 
-        receptionDate, 
-        5, 
+        'Vincent & Temitola Wedding Reception',
+        receptionDate,
+        5,
         'Poju Hotel Event Center, Oda Road, Akure, Ondo state'
       )
     }
@@ -108,7 +108,7 @@ const Schedule = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
           <div className="lg:col-span-2">
             <div className="space-y-4">
-              <motion.h3 
+              <motion.h3
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -130,10 +130,10 @@ const Schedule = () => {
               ))}
             </div>
           </div>
-          
+
           <div>
             <AnimatedImage
-              src="/lovable-uploads/d230ca28-3fe8-4689-89cc-7dabc275e6f0.png"
+              src="/lovable-uploads/f7e9c3db-a15f-45fd-abe8-c24b74d628d2.png"
               alt="Traditional wedding attire"
               className="rounded-lg shadow-lg h-80 decorative-border p-3"
             />
@@ -142,7 +142,7 @@ const Schedule = () => {
 
         {/* Scroll to top button */}
         <div className="flex justify-center mt-8">
-          <button 
+          <button
             onClick={scrollToTop}
             className="bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
             aria-label="Scroll to top"
@@ -151,7 +151,7 @@ const Schedule = () => {
           </button>
         </div>
       </Section>
-      
+
       <Section
         title="White Wedding"
         subtitle="Saturday, April 26, 2025"
@@ -159,12 +159,12 @@ const Schedule = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
           <div className="order-2 lg:order-1">
             <AnimatedImage
-              src="/lovable-uploads/cc361c12-3011-49ba-8d4b-cab42ee07b3e.png"
+              src="/lovable-uploads/acd3f946-d6a8-482a-91bb-3fdf4913263c.png"
               alt="White wedding"
               className="rounded-lg shadow-lg h-80 decorative-border p-3"
             />
           </div>
-          
+
           <div className="order-1 lg:order-2 lg:col-span-2">
             <div className="space-y-4">
               {whiteWeddingEvents.map((event, index) => (
@@ -184,7 +184,7 @@ const Schedule = () => {
 
         {/* Scroll to top button */}
         <div className="flex justify-center mt-8">
-          <button 
+          <button
             onClick={scrollToTop}
             className="bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
             aria-label="Scroll to top"
@@ -193,12 +193,12 @@ const Schedule = () => {
           </button>
         </div>
       </Section>
-      
+
       <Section
         className="bg-wedding-beige/10"
       >
         <div className="max-w-3xl mx-auto text-center">
-          <motion.h2 
+          <motion.h2
             className="section-title mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -207,7 +207,7 @@ const Schedule = () => {
           >
             What to Expect
           </motion.h2>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -216,16 +216,16 @@ const Schedule = () => {
             className="glass-card p-8 text-center"
           >
             <p className="text-lg mb-4 text-wedding-charcoal/80">
-              Our wedding weekend will be filled with joy, celebration, and love. 
+              Our wedding weekend will be filled with joy, celebration, and love.
               We've planned everything to ensure that you have a wonderful experience.
             </p>
-            
+
             <p className="text-lg mb-4 text-wedding-charcoal/80">
-              The traditional ceremony will showcase beautiful Yoruba customs, while 
-              the white wedding will blend contemporary elements with traditional values. 
+              The traditional ceremony will showcase beautiful Yoruba customs, while
+              the white wedding will blend contemporary elements with traditional values.
               Both days will feature delicious food, music, and plenty of dancing!
             </p>
-            
+
             <p className="font-cormorant italic text-xl text-wedding-gold mt-6">
               We can't wait to celebrate with you!
             </p>
@@ -234,7 +234,7 @@ const Schedule = () => {
 
         {/* Scroll to top button */}
         <div className="flex justify-center mt-8">
-          <button 
+          <button
             onClick={scrollToTop}
             className="bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
             aria-label="Scroll to top"
@@ -245,7 +245,7 @@ const Schedule = () => {
       </Section>
 
       {/* Fixed button to scroll to top */}
-      <button 
+      <button
         onClick={scrollToTop}
         className="fixed bottom-8 right-8 z-50 bg-wedding-gold/80 hover:bg-wedding-gold text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
         aria-label="Scroll to top"

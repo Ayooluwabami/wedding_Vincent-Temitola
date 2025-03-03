@@ -2,16 +2,8 @@
 import { motion } from 'framer-motion';
 import Section from '@/components/Section';
 import AnimatedImage from '@/components/AnimatedImage';
-import { ChevronUp } from 'lucide-react';
 
 const Gifts = () => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  };
-
   const CustomTitle = () => (
     <div className="flex items-center justify-center">
       <span className="font-playfair">Gift</span>
@@ -42,7 +34,7 @@ const Gifts = () => {
               <li><span className="font-medium">Bank:</span> Monzo</li>
             </ul>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,31 +52,11 @@ const Gifts = () => {
         </div>
 
         <AnimatedImage
-          src="/lovable-uploads/a1304f55-2b0b-4fe7-bda1-94862464d88b.png"
+          src="/lovable-uploads/571a7bbb-d095-4ec6-9e72-7fa4c716aa96.png"
           alt="Gift Registry"
           className="h-80 rounded-lg shadow-lg decorative-border p-3 mx-auto mt-8 max-w-md"
         />
-
-        {/* Scroll to top button */}
-        <div className="flex justify-center mt-8">
-          <button 
-            onClick={scrollToTop}
-            className="bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
-            aria-label="Scroll to top"
-          >
-            <ChevronUp size={24} />
-          </button>
-        </div>
       </Section>
-      
-      {/* Fixed button to scroll to top */}
-      <button 
-        onClick={scrollToTop}
-        className="fixed bottom-8 right-8 z-50 bg-wedding-gold/80 hover:bg-wedding-gold text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
-        aria-label="Scroll to top"
-      >
-        <ChevronUp size={24} />
-      </button>
     </>
   );
 };
