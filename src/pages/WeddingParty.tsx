@@ -2,31 +2,53 @@ import Section from '@/components/Section';
 import AnimatedImage from '@/components/AnimatedImage';
 import { motion } from 'framer-motion';
 
-const bridalParty = [
+type PartyMember = {
+  name: string;
+  role: string;
+  image: string;
+  description: string;
+  imageStyles?: {
+    backgroundSize?: string;
+    backgroundPosition?: string;
+  };
+};
+
+const bridalParty: PartyMember[] = [
   {
     name: "Olowookere Temitade",
     role: "Chief Bridesmaid",
     image: "/lovable-uploads/7954875f-8f90-4c81-8c09-5bc15f30222f.png",
-    description: "Best friend since childhood and always there through thick and thin."
+    description: "Best friend since childhood and always there through thick and thin.",
+    imageStyles: {
+      backgroundSize: 'cover',
+      backgroundPosition: 'center 40%',
+    }
   },
   {
     name: "Oluyemi Ikeoluwa",
     role: "Little Bride",
     image: "/lovable-uploads/0227836e-a82b-4368-8771-49c062f132ea.png",
-    description: "Our adorable little bride who will lead with grace and charm."
+    description: "Our adorable little bride who will lead with grace and charm.",
+    imageStyles: {
+      backgroundSize: 'cover',
+      backgroundPosition: 'center 35%',
+    }
   },
   {
     name: "Akinnifesi Emmanuel",
     role: "Best Man",
     image: "/lovable-uploads/4bc1cbf0-5b3f-4be0-8df5-515133a688e1.png",
-    description: "Childhood friend who's always been like a brother to me."
+    description: "Childhood friend who's always been like a brother to me.",
+    imageStyles: {
+      backgroundSize: 'cover',
+      backgroundPosition: 'center 5%',
+    }
   }
 ];
 
 const WeddingParty = () => {
   const weddingDate = new Date('2025-04-25T11:00:00');
 
-  // Custom title with styled Wedding and Party
   const CustomTitle = () => (
     <div className="flex items-center justify-center">
       <span className="font-playfair">Wedding</span>
@@ -50,6 +72,7 @@ const WeddingParty = () => {
               image={person.image}
               description={person.description}
               index={index}
+              imageStyles={person.imageStyles}
             />
           ))}
         </div>
@@ -109,9 +132,13 @@ interface PersonCardProps {
   image: string;
   description: string;
   index: number;
+  imageStyles?: {
+    backgroundSize?: string;
+    backgroundPosition?: string;
+  };
 }
 
-const PersonCard = ({ name, role, image, description, index }: PersonCardProps) => {
+const PersonCard = ({ name, role, image, description, index, imageStyles }: PersonCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -125,6 +152,7 @@ const PersonCard = ({ name, role, image, description, index }: PersonCardProps) 
           src={image}
           alt={name}
           className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+          style={imageStyles}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>

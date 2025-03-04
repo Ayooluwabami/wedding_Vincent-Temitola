@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
@@ -9,14 +8,19 @@ interface AnimatedImageProps {
   className?: string;
   delay?: number;
   downloadable?: boolean;
+  imageStyles?: {
+    backgroundSize?: string;
+    backgroundPosition?: string;
+  };
 }
 
-const AnimatedImage = ({ 
-  src, 
-  alt, 
-  className = '', 
+const AnimatedImage = ({
+  src,
+  alt,
+  className = '',
   delay = 0,
-  downloadable = false
+  downloadable = false,
+  imageStyles = { backgroundSize: 'cover', backgroundPosition: 'center' }
 }: AnimatedImageProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const imageRef = useRef<HTMLDivElement>(null);
@@ -53,7 +57,7 @@ const AnimatedImage = ({
   }, []);
 
   return (
-    <div 
+    <div
       ref={imageRef}
       className={`relative overflow-hidden ${className}`}
     >
@@ -63,15 +67,16 @@ const AnimatedImage = ({
         transition={{ duration: 0.4, delay: delay, ease: "easeOut" }}
         className="w-full h-full"
       >
-        <img 
-          src={src} 
-          alt={alt} 
+        <img
+          src={src}
+          alt={alt}
           className="w-full h-full object-cover image-hover-effect"
+          style={imageStyles}
           loading="lazy"
         />
 
         {downloadable && (
-          <button 
+          <button
             onClick={handleDownload}
             className="absolute bottom-3 right-3 bg-white/80 hover:bg-white p-2 rounded-full shadow-md transition-all duration-300 hover:scale-110 z-10"
             aria-label="Download image"

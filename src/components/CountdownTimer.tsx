@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
@@ -77,10 +78,12 @@ const TimeUnit = ({ label, value }: { label: string; value: string }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex items-center justify-center mb-1">
+      {/* Further reduced the height and removed bottom margin completely */}
+      <div className="w-16 h-10 sm:w-20 sm:h-12 md:w-24 md:h-16 flex items-center justify-center mb-0">
         <span className="font-playfair text-2xl sm:text-3xl md:text-4xl font-semibold text-wedding-cream">{value}</span>
       </div>
-      <span className="text-xs sm:text-sm md:text-base text-wedding-cream font-cormorant uppercase tracking-wider">{label}</span>
+      {/* Added negative margin-top to pull the label closer to the number */}
+      <span className="text-xs sm:text-sm md:text-base text-wedding-cream font-cormorant uppercase tracking-wider mt-[-5px]">{label}</span>
     </motion.div>
   );
 };
