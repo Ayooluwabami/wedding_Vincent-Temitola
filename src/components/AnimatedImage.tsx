@@ -68,8 +68,8 @@ const AnimatedImage = ({
         <img
           src={src}
           alt={alt}
-          className="w-full h-full object-cover image-hover-effect"
-          style={imageStyles}
+          className={`w-full h-full image-hover-effect ${className}`} // Removed object-cover
+          style={imageStyles} // imageStyles will now fully control objectFit and objectPosition
           loading="lazy"
         />
 

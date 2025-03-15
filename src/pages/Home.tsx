@@ -182,18 +182,30 @@ const Home = () => {
             src="/lovable-uploads/571a7bbb-d095-4ec6-9e72-7fa4c716aa96.png"
             alt="Gallery image 1"
             className="h-80 md:h-full"
+            imageStyles={{
+              objectFit: 'cover',
+              objectPosition: 'center 5%'
+            }}
             downloadable
           />
           <AnimatedImage
-            src="/lovable-uploads/87e2b97f-0644-4a12-9739-298c718bc2a9.png"
+            src="/lovable-uploads/f7e9c3db-a15f-45fd-abe8-c24b74d628d2.png"
             alt="Gallery image 2"
             className="h-80 md:h-full"
+            imageStyles={{
+              objectFit: 'cover',
+              objectPosition: 'center 5%'
+            }}
             downloadable
           />
           <AnimatedImage
             src="/lovable-uploads/efb8700e-f1b0-460f-857d-a4e5425c8fc1.png"
             alt="Gallery image 3"
             className="h-80 md:h-full"
+            imageStyles={{
+              objectFit: 'cover',
+              objectPosition: 'center 5%'
+            }}
             downloadable
           />
         </div>
