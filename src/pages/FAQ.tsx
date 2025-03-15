@@ -106,14 +106,6 @@ const FAQ = () => {
 
   return (
     <>
-      <Hero
-        title={<CustomTitle />}
-        subtitle="Everything you need to know"
-        image="/lovable-uploads/8880cfd1-7f37-4098-b5e4-3128239803bb.png"
-        date={weddingDate}
-        showCountdown={false}
-      />
-
       <Section
         title="Frequently Asked Questions"
         subtitle="Answers to your questions about our special day"
