@@ -18,112 +18,112 @@ interface GalleryImage {
 const galleryImages: GalleryImage[] = [
   {
     src: "/lovable-uploads/efb8700e-f1b0-460f-857d-a4e5425c8fc1.png",
-    alt: "Vincent and Temitola - traditional attire 1",
+    alt: "Tobiloba and Temitola - traditional attire 1",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 30%' }
   },
   {
     src: "/lovable-uploads/2b1e28be-3440-4996-a112-ec40e565f577.png",
-    alt: "Vincent and Temitola - candid moment 1",
+    alt: "Tobiloba and Temitola - candid moment 1",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 5%' }
   },
   {
     src: "/lovable-uploads/cc361c12-3011-49ba-8d4b-cab42ee07b3e.png",
-    alt: "Vincent and Temitola - close-up",
+    alt: "Tobiloba and Temitola - close-up",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 30%' }
   },
   {
     src: "/lovable-uploads/e3a5910d-a91a-4b80-918d-e993e87eed85.png",
-    alt: "Vincent and Temitola - evening pose",
+    alt: "Tobiloba and Temitola - evening pose",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 15%' }
   },
   {
     src: "/lovable-uploads/2a4bc038-ca03-4d80-b398-eeb5b61765db.png",
-    alt: "Vincent and Temitola - outdoor shot 1",
+    alt: "Tobiloba and Temitola - outdoor shot 1",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 10%' }
   },
   {
     src: "/lovable-uploads/f7bc1b85-7131-4e3c-8426-05633ca98607.png",
-    alt: "Vincent and Temitola - playful moment",
+    alt: "Tobiloba and Temitola - playful moment",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 35%' }
   },
   {
     src: "/lovable-uploads/571a7bbb-d095-4ec6-9e72-7fa4c716aa96.png",
-    alt: "Vincent and Temitola - romantic moment",
+    alt: "Tobiloba and Temitola - romantic moment",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 25%' }
   },
   {
     src: "/lovable-uploads/6853d055-df68-4a09-a6e5-9b71c2783165.png",
-    alt: "Vincent and Temitola - romantic pose",
+    alt: "Tobiloba and Temitola - romantic pose",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 10%' }
   },
   {
     src: "/lovable-uploads/32dd6604-37e8-4bc0-9991-5936833e0d5b.png",
-    alt: "Vincent and Temitola - outdoor shot 2",
+    alt: "Tobiloba and Temitola - outdoor shot 2",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 75%' }
   },
   {
     src: "/lovable-uploads/a5f89a38-4621-4ba9-b4fa-ee13395baeb0.png",
-    alt: "Vincent and Temitola - candid moment 2",
+    alt: "Tobiloba and Temitola - candid moment 2",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 25%' }
   },
   {
     src: "/lovable-uploads/87e2b97f-0644-4a12-9739-298c718bc2a9.png",
-    alt: "Vincent and Temitola - scenic moment",
+    alt: "Tobiloba and Temitola - scenic moment",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 15%' }
   },
   {
     src: "/lovable-uploads/8483aa87-840c-447b-bab9-93457f707eff.png",
-    alt: "Vincent and Temitola - candid laugh",
+    alt: "Tobiloba and Temitola - candid laugh",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 2%' }
   },
   {
     src: "/lovable-uploads/bef8aa40-8bfa-439c-9eeb-53349f5da554.png",
-    alt: "Vincent and Temitola - close-up 2",
+    alt: "Tobiloba and Temitola - close-up 2",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 20%' }
   },
   {
     src: "/lovable-uploads/1fe02b61-be20-4d1d-bdbb-1bd759bed963.png",
-    alt: "Vincent and Temitola - traditional pose",
+    alt: "Tobiloba and Temitola - traditional pose",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 10%' }
   },
   {
     src: "/lovable-uploads/0af6a945-db0e-45a1-80c9-d36dbe2e8760.png",
-    alt: "Vincent and Temitola - sunset moment",
+    alt: "Tobiloba and Temitola - sunset moment",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 10%' }
   },
   {
     src: "/lovable-uploads/a51b1e50-4082-43b1-9d95-19541548350e.png",
-    alt: "Vincent and Temitola - playful moment 2",
+    alt: "Tobiloba and Temitola - playful moment 2",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 95%' }
   },
   {
     src: "/lovable-uploads/78927c9a-1c97-430b-a15a-f31db67707a9.png",
-    alt: "Vincent and Temitola - playful pose",
+    alt: "Tobiloba and Temitola - playful pose",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 60%' }
   },
   {
     src: "/lovable-uploads/ac09c5c0-cc9e-4cdb-8a3a-d085a7a5ce08.png",
-    alt: "Vincent and Temitola - candid shot",
+    alt: "Tobiloba and Temitola - candid shot",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 20%' }
   },
   {
     src: "/lovable-uploads/14cfc873-8532-4744-aa06-5a97ab7fd028.png",
-    alt: "Vincent and Temitola - formal pose",
+    alt: "Tobiloba and Temitola - formal pose",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 5%' }
   },
   {
     src: "/lovable-uploads/d230ca28-3fe8-4689-89cc-7dabc275e6f0.png",
-    alt: "Vincent and Temitola - close-up 3",
+    alt: "Tobiloba and Temitola - close-up 3",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 5%' }
   },
   {
     src: "/lovable-uploads/a1304f55-2b0b-4fe7-bda1-94862464d88b.png",
-    alt: "Vincent and Temitola - candid moment 3",
+    alt: "Tobiloba and Temitola - candid moment 3",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 5%' }
   },
   {
     src: "/lovable-uploads/f7e9c3db-a15f-45fd-abe8-c24b74d628d2.png",
-    alt: "Vincent and Temitola - final pose",
+    alt: "Tobiloba and Temitola - final pose",
     imageStyles: { objectFit: 'cover', objectPosition: 'center 100%' }
   }
 ];
@@ -145,7 +145,7 @@ const Moments = () => {
   const getFilenameFromUrl = (url: string) => {
     const parts = url.split('/');
     const filename = parts[parts.length - 1].split('.')[0].substring(0, 10);
-    return `vincent-temitola-${filename}`;
+    return `tobiloba-temitola-${filename}`;
   };
 
   return (
@@ -239,7 +239,7 @@ const Moments = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <AnimatedImage
               src="/lovable-uploads/0af6a945-db0e-45a1-80c9-d36dbe2e8760.png"
-              alt="Vincent and Temitola special moment"
+              alt="Tobiloba and Temitola special moment"
               className="rounded-lg h-96"
               downloadable={true}
               imageStyles={{
@@ -249,7 +249,7 @@ const Moments = () => {
             />
             <AnimatedImage
               src="/lovable-uploads/87e2b97f-0644-4a12-9739-298c718bc2a9.png"
-              alt="Vincent and Temitola in traditional attire"
+              alt="Tobiloba and Temitola in traditional attire"
               className="rounded-lg h-96"
               downloadable={true}
               imageStyles={{

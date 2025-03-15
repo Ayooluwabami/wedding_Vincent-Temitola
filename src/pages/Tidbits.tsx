@@ -53,7 +53,7 @@ const tidbits = [
 
 const Tidbits = () => {
   const weddingDate = new Date('2025-04-25T11:00:00');
-  
+
   // Additional images for tidbits hero
   const heroImages = [
     "/lovable-uploads/d230ca28-3fe8-4689-89cc-7dabc275e6f0.png",
@@ -71,19 +71,19 @@ const Tidbits = () => {
         date={weddingDate}
         showCountdown={false}
       />
-      
+
       <Section
         title="Fun Facts About Us"
-        subtitle="Get to know Vincent and Temitola a little better"
+        subtitle="Get to know Tobiloba and Temitola a little better"
         className="bg-wedding-cream/20"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-12">
           <AnimatedImage
             src="/lovable-uploads/1fe02b61-be20-4d1d-bdbb-1bd759bed963.png"
-            alt="Vincent and Temitola"
+            alt="Tobiloba and Temitola"
             className="rounded-lg overflow-hidden shadow-lg h-80"
           />
-          
+
           <div>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -91,16 +91,16 @@ const Tidbits = () => {
               transition={{ duration: 0.8 }}
               className="text-lg text-wedding-charcoal/80"
             >
-              Every relationship has its own unique quirks and special moments that define the couple's journey together. 
-              Here are some fun facts and tidbits about our relationship that give you a glimpse into our world 
+              Every relationship has its own unique quirks and special moments that define the couple's journey together.
+              Here are some fun facts and tidbits about our relationship that give you a glimpse into our world
               and the little things that make us, us.
             </motion.p>
           </div>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
           {tidbits.map((tidbit, index) => (
-            <TidbitCard 
+            <TidbitCard
               key={index}
               question={tidbit.question}
               answer={tidbit.answer}

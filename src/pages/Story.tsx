@@ -29,7 +29,7 @@ const Story = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <AnimatedImage
             src="/lovable-uploads/571a7bbb-d095-4ec6-9e72-7fa4c716aa96.png"
-            alt="Vincent and Temitola sharing a moment together"
+            alt="Tobiloba and Temitola sharing a moment together"
             className="rounded-lg h-80 md:h-96 object-cover"
             imageStyles={{
               objectFit: 'cover',
@@ -81,7 +81,7 @@ const Story = () => {
           </div>
           <AnimatedImage
             src="/lovable-uploads/c6dec023-94b9-4991-96e5-d6697a4e87e2.png"
-            alt="Vincent and Temitola laughing together"
+            alt="Tobiloba and Temitola laughing together"
             className="rounded-lg h-80 md:h-96 object-cover order-1 md:order-2"
           />
         </div>
@@ -90,7 +90,7 @@ const Story = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           <AnimatedImage
             src="/lovable-uploads/acd3f946-d6a8-482a-91bb-3fdf4913263c.png"
-            alt="Vincent and Temitola in traditional attire"
+            alt="Tobiloba and Temitola in traditional attire"
             className="rounded-lg h-80 md:h-96 object-cover"
             imageStyles={{
               objectFit: 'cover',
@@ -138,7 +138,7 @@ const Story = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-wedding-charcoal/80 max-w-4xl mx-auto mt-6 text-right italic"
           >
-            -Vincent.
+            -Tobiloba.
           </motion.p>
         </div>
       </Section>

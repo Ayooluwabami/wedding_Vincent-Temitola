@@ -1,16 +1,16 @@
-
 import { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile'; // Assuming this hook exists
 
 const routes = [
-  { path: '/', label: 'Home' },
-  { path: '/story', label: 'Our Story' },
-  { path: '/schedule', label: 'Schedule' },
-  { path: '/gifts', label: 'Gifts' },
-  { path: '/faq', label: 'Q&A' },
-  { path: '/moments', label: 'Moments' }
+  { path: '/', label: 'Home', sectionId: 'home' },
+  { path: '/story', label: 'Our Story', sectionId: 'story' },
+  { path: '/schedule', label: 'Schedule', sectionId: 'schedule' },
+  { path: '/gifts', label: 'Gifts', sectionId: 'gifts' },
+  { path: '/faq', label: 'Q&A', sectionId: 'faq' },
+  { path: '/moments', label: 'Moments', sectionId: 'moments' }
 ];
 
 const scrollToSection = (sectionId: string) => {
@@ -24,7 +24,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { pathname } = useLocation();
-  const isMobileScrollView = window.innerWidth < 768;
+  const isMobile = useIsMobile(); // Use the same hook as Hero.tsx for consistency
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,25 +32,20 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    // Set initial state
     handleScroll();
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when route changes
+  // Close mobile menu when route changes (desktop only)
   useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname]);
+    if (!isMobile) setIsMenuOpen(false);
+  }, [pathname, isMobile]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const navbarClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-    ? 'bg-white/80 backdrop-blur-md shadow-md'
-    : 'bg-transparent'
+  const navbarClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-md' : 'bg-transparent'
     }`;
 
   const logoTextClasses = `font-cormorant font-semibold tracking-wider transition-all duration-300 ${isScrolled ? 'text-wedding-charcoal' : 'text-wedding-charcoal'
@@ -64,34 +59,25 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" aria-label="Home">
-            <span className={`text-2xl ${logoTextClasses} text-[#bd8869]`}>V<span className="text-[#d0879e]">&</span>T</span>
+          <Link to="/" onClick={() => isMobile && scrollToSection('home')} aria-label="Home">
+            <span className={`text-2xl ${logoTextClasses} text-[#bd8869]`}>
+              T<span className="text-[#d0879e]">&</span>T
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-1 lg:space-x-4">
             {routes.map((route) => (
-              isMobileScrollView && pathname === '/' ? (
-                // Mobile scroll view links - only when on home page
-                <button
-                  key={route.path}
-                  onClick={() => scrollToSection(route.path.substring(1) || 'home')}
-                  className={`${linkTextClasses} px-2 py-1 hover:text-wedding-gold nav-link relative`}
-                >
-                  {route.label}
-                </button>
-              ) : (
-                // Regular NavLinks for desktop or non-home pages
-                <NavLink
-                  key={route.path}
-                  to={route.path}
-                  className={({ isActive }) =>
-                    `${linkTextClasses} px-2 py-1 hover:text-wedding-gold nav-link relative ${isActive ? 'active-nav-link' : ''}`
-                  }
-                >
-                  {route.label}
-                </NavLink>
-              )
+              <NavLink
+                key={route.path}
+                to={route.path}
+                className={({ isActive }) =>
+                  `${linkTextClasses} px-2 py-1 hover:text-wedding-gold nav-link relative ${isActive ? 'active-nav-link' : ''
+                  }`
+                }
+              >
+                {route.label}
+              </NavLink>
             ))}
           </nav>
 
@@ -112,7 +98,7 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       <AnimatePresence>
-        {isMenuOpen && (
+        {isMenuOpen && isMobile && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
@@ -123,18 +109,16 @@ const Navbar = () => {
             <div className="container mx-auto px-4 py-4">
               <nav className="flex flex-col space-y-3">
                 {routes.map((route) => (
-                  <NavLink
+                  <button
                     key={route.path}
-                    to={route.path}
-                    className={({ isActive }) =>
-                      `text-wedding-charcoal py-2 px-4 rounded-md ${isActive
-                        ? 'font-medium bg-wedding-cream/50'
-                        : 'hover:bg-wedding-cream/30'
-                      }`
-                    }
+                    onClick={() => {
+                      scrollToSection(route.sectionId);
+                      setIsMenuOpen(false); // Close menu after click
+                    }}
+                    className="text-wedding-charcoal py-2 px-4 rounded-md hover:bg-wedding-cream/30 text-left"
                   >
                     {route.label}
-                  </NavLink>
+                  </button>
                 ))}
               </nav>
             </div>

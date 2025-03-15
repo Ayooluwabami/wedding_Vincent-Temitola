@@ -13,7 +13,7 @@ const Footer = () => {
             to="/"
             className="font-cormorant text-4xl font-semibold text-wedding-charcoal mb-6"
           >
-            Vincent & Temitola
+            Tobiloba & Temitola
           </Link>
 
           <p className="font-cormorant italic text-lg text-wedding-charcoal mb-8">

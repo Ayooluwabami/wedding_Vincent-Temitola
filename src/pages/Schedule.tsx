@@ -48,7 +48,7 @@ const Schedule = () => {
       location: 'Dejavu hall, Elshadii road, Alagbaka, Akure',
       date: format(traditionalDate, 'MMMM d, yyyy'),
       calendarEvent: createCalendarEvent(
-        'Vincent & Temitola Traditional Wedding',
+        'Tobiloba & Temitola Traditional Wedding',
         traditionalDate,
         5,
         'Dejavu hall, Elshadii road, Alagbaka, Akure'
@@ -69,7 +69,7 @@ const Schedule = () => {
       location: 'Global Harvest Church, Alagbaka, Akure',
       date: format(churchDate, 'MMMM d, yyyy'),
       calendarEvent: createCalendarEvent(
-        'Vincent & Temitola Wedding Ceremony',
+        'Tobiloba & Temitola Wedding Ceremony',
         churchDate,
         2,
         'Global Harvest Church, Alagbaka, Akure'
@@ -83,7 +83,7 @@ const Schedule = () => {
       location: 'Poju Hotel Event Center, Oda Road, Akure, Ondo state',
       date: format(receptionDate, 'MMMM d, yyyy'),
       calendarEvent: createCalendarEvent(
-        'Vincent & Temitola Wedding Reception',
+        'Tobiloba & Temitola Wedding Reception',
         receptionDate,
         5,
         'Poju Hotel Event Center, Oda Road, Akure, Ondo state'

@@ -69,7 +69,7 @@ const Home = () => {
   // Custom title with styled ampersand (increased font size)
   const CustomTitle = () => (
     <div className="flex items-center justify-center">
-      <span className="font-playfair font-bold text-[1.3em]">Vincent</span>
+      <span className="font-playfair font-bold text-[1.3em]">Tobiloba</span>
       <span className="text-[#d0879e] mx-2 font-playfair italic font-bold text-[1.3em]">&</span>
       <span className="font-playfair font-bold text-[1.3em]">Temitola</span>
     </div>
@@ -126,7 +126,7 @@ const Home = () => {
 
           <AnimatedImage
             src="/lovable-uploads/2a4bc038-ca03-4d80-b398-eeb5b61765db.png"
-            alt="Vincent and Temitola"
+            alt="Tobiloba and Temitola"
             className="rounded-lg overflow-hidden h-80 md:h-96 decorative-border p-4"
             imageStyles={{
               objectFit: 'cover',
