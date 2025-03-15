@@ -69,9 +69,9 @@ const Home = () => {
   // Custom title with styled ampersand (increased font size)
   const CustomTitle = () => (
     <div className="flex items-center justify-center">
-      <span className="font-playfair font-bold text-[1.3em]">Tobiloba</span>
-      <span className="text-[#d0879e] mx-2 font-playfair italic font-bold text-[1.3em]">&</span>
-      <span className="font-playfair font-bold text-[1.3em]">Temitola</span>
+      <span className="font-playfair font-bold text-[1em]">Tobiloba</span>
+      <span className="text-[#d0879e] mx-2 font-playfair italic font-bold text-[1em]">&</span>
+      <span className="font-playfair font-bold text-[1em]">Temitola</span>
     </div>
   );
 
