@@ -10,6 +10,8 @@ type HeroImage = {
   src: string;
   backgroundSize?: string;
   backgroundPosition?: string;
+  mobileBackgroundSize?: string; // Added for mobile-specific styling
+  mobileBackgroundPosition?: string; // Added for mobile-specific styling
 };
 
 interface HeroProps {
@@ -19,7 +21,6 @@ interface HeroProps {
   additionalImages?: (string | HeroImage)[];
   date: Date;
   showCountdown?: boolean;
-  // Content positioning options
   contentPositioning?: {
     titleSize?: string;
     subtitleMarginTop?: string;
@@ -64,11 +65,9 @@ const Hero = ({
   }
 
   useEffect(() => {
-    // Change image every 4 seconds (faster transition)
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % allImages.length);
     }, 4000);
-
     return () => {
       if (interval) clearInterval(interval);
     };
@@ -97,7 +96,6 @@ const Hero = ({
     }
   };
 
-  // Set default values for content positioning
   const {
     titleSize = "text-3xl sm:text-4xl md:text-5xl lg:text-6xl",
     subtitleMarginTop = "mt-12",
@@ -107,10 +105,9 @@ const Hero = ({
     countdownMarginTop = "mt-12"
   } = contentPositioning;
 
-  // Adjust hero height based on device and make transition faster
   return (
     <div className={`relative ${isMobile ? 'min-h-[60vh]' : 'min-h-screen'} overflow-hidden`}>
-      {/* Background Image with animation - show on home page for all devices */}
+      {/* Background Image with animation */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/40 z-10" />
         <AnimatePresence mode="wait">
@@ -123,19 +120,22 @@ const Hero = ({
             className="w-full h-full"
           >
             <div
-              className="w-full h-full"
+              className="w-full h-full bg-cover bg-no-repeat md:bg-[length:100%_auto]"
               style={{
                 backgroundImage: `url(${allImages[currentImageIndex].src})`,
-                backgroundSize: allImages[currentImageIndex].backgroundSize || '100%',
-                backgroundPosition: allImages[currentImageIndex].backgroundPosition || 'center',
-                backgroundRepeat: 'no-repeat'
+                backgroundSize: isMobile
+                  ? (allImages[currentImageIndex].mobileBackgroundSize || 'cover')
+                  : (allImages[currentImageIndex].backgroundSize || '100%'),
+                backgroundPosition: isMobile
+                  ? (allImages[currentImageIndex].mobileBackgroundPosition || 'center')
+                  : (allImages[currentImageIndex].backgroundPosition || 'center')
               }}
             />
           </motion.div>
         </AnimatePresence>
       </div>
 
-      {/* Content - Customizable positioning */}
+      {/* Content */}
       <div className="relative z-20 h-full flex flex-col items-center justify-center text-center text-white px-4 container mx-auto pt-12">
         <motion.div
           variants={containerVariants}
@@ -175,14 +175,13 @@ const Hero = ({
         </motion.div>
       </div>
 
-      {/* Navigation dots for the image carousel */}
+      {/* Navigation dots */}
       {allImages.length > 1 && (
         <div className="absolute bottom-8 left-0 right-0 z-30 flex justify-center space-x-2">
           {allImages.map((_, index) => (
             <button
               key={index}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImageIndex ? 'bg-white scale-125' : 'bg-white/50'
-                }`}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${index === currentImageIndex ? 'bg-white scale-125' : 'bg-white/50'}`}
               onClick={() => setCurrentImageIndex(index)}
               aria-label={`View image ${index + 1}`}
             />

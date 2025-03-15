@@ -18,7 +18,9 @@ const heroImages = [
   {
     src: "/lovable-uploads/cc361c12-3011-49ba-8d4b-cab42ee07b3e.png",
     backgroundSize: '100%',
-    backgroundPosition: 'center 10%'
+    backgroundPosition: 'center 10%',
+    mobileBackgroundSize: 'cover',
+    mobileBackgroundPosition: 'center 10%'
   },
   {
     src: "/lovable-uploads/32dd6604-37e8-4bc0-9991-5936833e0d5b.png",
@@ -28,7 +30,9 @@ const heroImages = [
   {
     src: "/lovable-uploads/571a7bbb-d095-4ec6-9e72-7fa4c716aa96.png",
     backgroundSize: '100%',
-    backgroundPosition: 'center 15%'
+    backgroundPosition: 'center 15%',
+    mobileBackgroundSize: 'cover',
+    mobileBackgroundPosition: 'center 15%'
   },
   {
     src: "/lovable-uploads/6853d055-df68-4a09-a6e5-9b71c2783165.png",
@@ -48,12 +52,16 @@ const heroImages = [
   {
     src: "/lovable-uploads/2a4bc038-ca03-4d80-b398-eeb5b61765db.png",
     backgroundSize: '100%',
-    backgroundPosition: 'center 7%'
+    backgroundPosition: 'center 7%',
+    mobileBackgroundSize: 'cover',
+    mobileBackgroundPosition: 'center 7%'
   },
   {
     src: "/lovable-uploads/efb8700e-f1b0-460f-857d-a4e5425c8fc1.png",
     backgroundSize: '100%',
-    backgroundPosition: 'center 10%'
+    backgroundPosition: 'center 10%',
+    mobileBackgroundSize: 'cover',
+    mobileBackgroundPosition: 'center 10%'
   }
 ];
 
