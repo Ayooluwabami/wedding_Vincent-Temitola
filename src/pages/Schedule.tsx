@@ -163,9 +163,13 @@ const Schedule = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
           <div className="order-2 lg:order-1">
             <AnimatedImage
-              src="/lovable-uploads/acd3f946-d6a8-482a-91bb-3fdf4913263c.png"
+              src="/lovable-uploads/7fb4f864-5536-49ba-9cb9-ccf138736f59.png"
               alt="White wedding"
               className="rounded-lg shadow-lg h-80 decorative-border p-3"
+              imageStyles={{
+                objectFit: 'cover',
+                objectPosition: 'center 5%'
+              }}
             />
           </div>
 

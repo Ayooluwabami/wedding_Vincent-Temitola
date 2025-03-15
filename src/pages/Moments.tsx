@@ -238,23 +238,23 @@ const Moments = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <AnimatedImage
-              src="/lovable-uploads/571a7bbb-d095-4ec6-9e72-7fa4c716aa96.png"
+              src="/lovable-uploads/0af6a945-db0e-45a1-80c9-d36dbe2e8760.png"
               alt="Vincent and Temitola special moment"
               className="rounded-lg h-96"
               downloadable={true}
               imageStyles={{
                 objectFit: 'cover',
-                objectPosition: 'center 25%'
+                objectPosition: 'center 5%'
               }}
             />
             <AnimatedImage
-              src="/lovable-uploads/efb8700e-f1b0-460f-857d-a4e5425c8fc1.png"
+              src="/lovable-uploads/87e2b97f-0644-4a12-9739-298c718bc2a9.png"
               alt="Vincent and Temitola in traditional attire"
               className="rounded-lg h-96"
               downloadable={true}
               imageStyles={{
                 objectFit: 'cover',
-                objectPosition: 'center 35%'
+                objectPosition: 'center 5%'
               }}
             />
           </div>

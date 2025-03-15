@@ -221,12 +221,12 @@ const FAQ = () => {
           </motion.div>
 
           <AnimatedImage
-            src="/lovable-uploads/cc361c12-3011-49ba-8d4b-cab42ee07b3e.png"
+            src="/lovable-uploads/fadc3c85-f98d-4557-bd53-685f9617436b.png"
             alt="Contact Us"
             className="h-80 rounded-lg shadow-lg decorative-border p-3"
             imageStyles={{
               objectFit: 'cover',
-              objectPosition: 'center 1%'
+              objectPosition: 'center 20%'
             }}
           />
         </div>

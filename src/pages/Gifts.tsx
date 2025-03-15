@@ -52,12 +52,12 @@ const Gifts = () => {
         </div>
 
         <AnimatedImage
-          src="/lovable-uploads/571a7bbb-d095-4ec6-9e72-7fa4c716aa96.png"
+          src="/lovable-uploads/f7bc1b85-7131-4e3c-8426-05633ca98607.png"
           alt="Gift Registry"
           className="h-80 rounded-lg shadow-lg decorative-border p-3 mx-auto mt-8 max-w-md"
           imageStyles={{
             objectFit: 'cover',
-            objectPosition: 'center 5%'
+            objectPosition: 'center 25%'
           }}
         />
       </Section>
