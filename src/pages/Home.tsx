@@ -120,6 +120,10 @@ const Home = () => {
             src="/lovable-uploads/cc361c12-3011-49ba-8d4b-cab42ee07b3e.png"
             alt="Vincent and Temitola"
             className="rounded-lg overflow-hidden h-80 md:h-96 decorative-border p-4"
+            imageStyles={{
+              objectFit: 'cover',
+              objectPosition: 'center 5%'
+            }}
           />
         </div>
 

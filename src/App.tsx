@@ -12,9 +12,7 @@ import Home from "./pages/Home";
 import Story from "./pages/Story";
 import Gifts from "./pages/Gifts";
 import Schedule from "./pages/Schedule";
-import Venue from "./pages/Venue";
 import FAQ from "./pages/FAQ";
-import WeddingParty from "./pages/WeddingParty";
 import Moments from "./pages/Moments";
 import NotFound from "./pages/NotFound";
 
@@ -36,14 +34,8 @@ const MobileScrollView = () => {
       <div id="schedule" className="min-h-screen scroll-mt-16">
         <Schedule />
       </div>
-      <div id="venue" className="min-h-screen scroll-mt-16">
-        <Venue />
-      </div>
       <div id="faq" className="min-h-screen scroll-mt-16">
         <FAQ />
-      </div>
-      <div id="wedding-party" className="min-h-screen scroll-mt-16">
-        <WeddingParty />
       </div>
       <div id="moments" className="min-h-screen scroll-mt-16">
         <Moments />
@@ -109,9 +101,8 @@ const App = () => {
                 <Route path="/story" element={<Story />} />
                 <Route path="/gifts" element={<Gifts />} />
                 <Route path="/schedule" element={<Schedule />} />
-                <Route path="/venue" element={<Venue />} />
+                <Route path="/venue" element={<Schedule />} />
                 <Route path="/faq" element={<FAQ />} />
-                <Route path="/wedding-party" element={<WeddingParty />} />
                 <Route path="/moments" element={<Moments />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

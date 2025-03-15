@@ -9,9 +9,7 @@ const routes = [
   { path: '/story', label: 'Our Story' },
   { path: '/schedule', label: 'Schedule' },
   { path: '/gifts', label: 'Gifts' },
-  { path: '/venue', label: 'Venue' },
   { path: '/faq', label: 'Q&A' },
-  { path: '/wedding-party', label: 'Wedding Party' },
   { path: '/moments', label: 'Moments' }
 ];
 
@@ -34,7 +32,7 @@ const Navbar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    
+
     // Set initial state
     handleScroll();
 
@@ -50,19 +48,16 @@ const Navbar = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const navbarClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-    isScrolled 
-      ? 'bg-white/80 backdrop-blur-md shadow-md' 
-      : 'bg-transparent'
-  }`;
+  const navbarClasses = `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+    ? 'bg-white/80 backdrop-blur-md shadow-md'
+    : 'bg-transparent'
+    }`;
 
-  const logoTextClasses = `font-cormorant font-semibold tracking-wider transition-all duration-300 ${
-    isScrolled ? 'text-wedding-charcoal' : 'text-wedding-charcoal'
-  }`;
+  const logoTextClasses = `font-cormorant font-semibold tracking-wider transition-all duration-300 ${isScrolled ? 'text-wedding-charcoal' : 'text-wedding-charcoal'
+    }`;
 
-  const linkTextClasses = `font-montserrat text-xs md:text-sm uppercase tracking-wider font-medium transition-colors duration-300 ${
-    isScrolled ? 'text-wedding-charcoal' : 'text-wedding-charcoal'
-  }`;
+  const linkTextClasses = `font-montserrat text-xs md:text-sm uppercase tracking-wider font-medium transition-colors duration-300 ${isScrolled ? 'text-wedding-charcoal' : 'text-wedding-charcoal'
+    }`;
 
   return (
     <header className={navbarClasses}>
@@ -90,7 +85,7 @@ const Navbar = () => {
                 <NavLink
                   key={route.path}
                   to={route.path}
-                  className={({ isActive }) => 
+                  className={({ isActive }) =>
                     `${linkTextClasses} px-2 py-1 hover:text-wedding-gold nav-link relative ${isActive ? 'active-nav-link' : ''}`
                   }
                 >
@@ -131,11 +126,10 @@ const Navbar = () => {
                   <NavLink
                     key={route.path}
                     to={route.path}
-                    className={({ isActive }) => 
-                      `text-wedding-charcoal py-2 px-4 rounded-md ${
-                        isActive 
-                          ? 'font-medium bg-wedding-cream/50' 
-                          : 'hover:bg-wedding-cream/30'
+                    className={({ isActive }) =>
+                      `text-wedding-charcoal py-2 px-4 rounded-md ${isActive
+                        ? 'font-medium bg-wedding-cream/50'
+                        : 'hover:bg-wedding-cream/30'
                       }`
                     }
                   >

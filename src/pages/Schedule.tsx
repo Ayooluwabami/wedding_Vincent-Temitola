@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import Section from '@/components/Section';
 import EventCard from '@/components/EventCard';
@@ -53,7 +52,8 @@ const Schedule = () => {
         traditionalDate,
         5,
         'Dejavu hall, Elshadii road, Alagbaka, Akure'
-      )
+      ),
+      googleMapsLink: 'https://maps.google.com/?q=Dejavu+hall+Alagbaka+Akure'
     }
   ];
 
@@ -66,14 +66,15 @@ const Schedule = () => {
       time: '10:00',
       title: 'Renewal of Vows',
       description: 'Witness our vows to each other in this beautiful ceremony.',
-      location: 'Redeemed Christian Church of God, Akure',
+      location: 'Global Harvest Church, Alagbaka, Akure',
       date: format(churchDate, 'MMMM d, yyyy'),
       calendarEvent: createCalendarEvent(
         'Vincent & Temitola Wedding Ceremony',
         churchDate,
         2,
-        'Redeemed Christian Church of God, Akure'
-      )
+        'Global Harvest Church, Alagbaka, Akure'
+      ),
+      googleMapsLink: 'https://maps.google.com/?q=Global+Harvest+Church+Alagbaka+Akure'
     },
     {
       time: '13:00',
@@ -86,7 +87,8 @@ const Schedule = () => {
         receptionDate,
         5,
         'Poju Hotel Event Center, Oda Road, Akure, Ondo state'
-      )
+      ),
+      googleMapsLink: 'https://maps.google.com/?q=Poju+Hotel+Event+Center+Akure'
     }
   ];
 
@@ -126,6 +128,7 @@ const Schedule = () => {
                   location={event.location}
                   date={event.date}
                   calendarEvent={event.calendarEvent}
+                  googleMapsLink={event.googleMapsLink} // Pass Google Maps link to EventCard
                 />
               ))}
             </div>
@@ -136,6 +139,10 @@ const Schedule = () => {
               src="/lovable-uploads/f7e9c3db-a15f-45fd-abe8-c24b74d628d2.png"
               alt="Traditional wedding attire"
               className="rounded-lg shadow-lg h-80 decorative-border p-3"
+              imageStyles={{
+                objectFit: 'cover',
+                objectPosition: 'center 85%'
+              }}
             />
           </div>
         </div>
@@ -152,10 +159,7 @@ const Schedule = () => {
         </div>
       </Section>
 
-      <Section
-        title="White Wedding"
-        subtitle="Saturday, April 26, 2025"
-      >
+      <Section>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
           <div className="order-2 lg:order-1">
             <AnimatedImage
@@ -167,6 +171,15 @@ const Schedule = () => {
 
           <div className="order-1 lg:order-2 lg:col-span-2">
             <div className="space-y-4">
+              <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className="font-playfair text-2xl text-wedding-charcoal mb-4"
+              >
+                Saturday, April 26, 2025
+              </motion.h3>
               {whiteWeddingEvents.map((event, index) => (
                 <EventCard
                   key={index}
@@ -176,6 +189,7 @@ const Schedule = () => {
                   location={event.location}
                   date={event.date}
                   calendarEvent={event.calendarEvent}
+                  googleMapsLink={event.googleMapsLink} // Pass Google Maps link to EventCard
                 />
               ))}
             </div>
@@ -222,7 +236,7 @@ const Schedule = () => {
 
             <p className="text-lg mb-4 text-wedding-charcoal/80">
               The traditional ceremony will showcase beautiful Yoruba customs, while
-              the white wedding will blend contemporary elements with traditional values.
+              the renewal of vows and reception will blend contemporary elements with traditional values.
               Both days will feature delicious food, music, and plenty of dancing!
             </p>
 
@@ -230,6 +244,61 @@ const Schedule = () => {
               We can't wait to celebrate with you!
             </p>
           </motion.div>
+        </div>
+
+        {/* Scroll to top button */}
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={scrollToTop}
+            className="bg-wedding-gold/80 hover:bg-wedding-gold text-white p-2 rounded-full shadow-lg transition-all duration-300 hover:scale-110"
+            aria-label="Scroll to top"
+          >
+            <ChevronUp size={24} />
+          </button>
+        </div>
+      </Section>
+
+      {/* Accommodation Section */}
+      <Section
+        title="Accommodation"
+        subtitle="Recommended hotels and lodging options"
+      >
+        <div className="max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="bg-gradient-to-br from-white to-wedding-cream/30 p-6 rounded-lg shadow-md border border-wedding-gold/20 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <h3 className="font-playfair text-xl font-semibold mb-3 text-wedding-charcoal">Sunview Hotel</h3>
+              <p className="text-wedding-charcoal/80 mb-4">
+                Comfortable accommodations conveniently located near the venue.
+              </p>
+              <p className="italic text-wedding-silver">Alagbaka GRA, Akure, Ondo State</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="bg-gradient-to-br from-white to-wedding-cream/30 p-6 rounded-lg shadow-md border border-wedding-gold/20 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <h3 className="font-playfair text-xl font-semibold mb-3 text-wedding-charcoal">Owena Motel</h3>
+              <p className="text-wedding-charcoal/80 mb-4">
+                Elegant hotel with excellent amenities for your stay in Akure.
+              </p>
+              <p className="italic text-wedding-silver">Igbatoro Road, Akure, Ondo State</p>
+            </motion.div>
+          </div>
+
+          <div className="mt-8 text-center">
+            <p className="text-wedding-charcoal/80 mb-4">
+              For assistance with accommodation arrangements, please don't hesitate to contact us.
+            </p>
+          </div>
         </div>
 
         {/* Scroll to top button */}

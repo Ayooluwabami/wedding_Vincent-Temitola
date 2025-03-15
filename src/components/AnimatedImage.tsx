@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
+import { CSSProperties } from 'react';
 
 interface AnimatedImageProps {
   src: string;
@@ -8,10 +9,7 @@ interface AnimatedImageProps {
   className?: string;
   delay?: number;
   downloadable?: boolean;
-  imageStyles?: {
-    backgroundSize?: string;
-    backgroundPosition?: string;
-  };
+  imageStyles?: Pick<CSSProperties, 'objectFit' | 'objectPosition'>;
 }
 
 const AnimatedImage = ({
@@ -20,7 +18,7 @@ const AnimatedImage = ({
   className = '',
   delay = 0,
   downloadable = false,
-  imageStyles = { backgroundSize: 'cover', backgroundPosition: 'center' }
+  imageStyles = { objectFit: 'cover', objectPosition: 'center' }
 }: AnimatedImageProps) => {
   const [isVisible, setIsVisible] = useState(false);
   const imageRef = useRef<HTMLDivElement>(null);

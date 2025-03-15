@@ -1,9 +1,9 @@
-
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect, ReactNode } from 'react';
 import CountdownTimer from './CountdownTimer';
 import { ChevronUp } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 // Add types for image customization
 type HeroImage = {
@@ -56,7 +56,7 @@ const Hero = ({
   const allImages = [mainImage, ...processedAdditionalImages];
 
   const location = useLocation();
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile();
 
   // Only show the Hero on the homepage
   if (location.pathname !== '/' && location.pathname !== '/index') {
@@ -64,27 +64,15 @@ const Hero = ({
   }
 
   useEffect(() => {
-    // Check if device is mobile
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    // Initial check
-    checkMobile();
-
-    // Add resize listener
-    window.addEventListener('resize', checkMobile);
-
-    // Change image every 5 seconds 
+    // Change image every 4 seconds (faster transition)
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % allImages.length);
-    }, 5000);
+    }, 4000);
 
     return () => {
-      window.removeEventListener('resize', checkMobile);
       if (interval) clearInterval(interval);
     };
-  }, [allImages.length, isMobile]);
+  }, [allImages.length]);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -119,26 +107,26 @@ const Hero = ({
     countdownMarginTop = "mt-12"
   } = contentPositioning;
 
-  // Make hero taller on all devices
+  // Adjust hero height based on device and make transition faster
   return (
-    <section className={`relative ${isMobile ? 'min-h-[75vh]' : 'min-h-screen'} overflow-hidden`}>
+    <div className={`relative ${isMobile ? 'min-h-[60vh]' : 'min-h-screen'} overflow-hidden`}>
       {/* Background Image with animation - show on home page for all devices */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/40 z-10" />
         <AnimatePresence mode="wait">
           <motion.div
             key={currentImageIndex}
-            initial={{ opacity: 0, scale: 1.1 }}
+            initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="w-full h-full"
           >
             <div
               className="w-full h-full"
               style={{
                 backgroundImage: `url(${allImages[currentImageIndex].src})`,
-                backgroundSize: allImages[currentImageIndex].backgroundSize || 'cover',
+                backgroundSize: allImages[currentImageIndex].backgroundSize || '100%',
                 backgroundPosition: allImages[currentImageIndex].backgroundPosition || 'center',
                 backgroundRepeat: 'no-repeat'
               }}
@@ -173,7 +161,7 @@ const Hero = ({
             className={`font-cormorant italic text-lg sm:text-xl md:text-2xl ${dateMarginTop} ${dateMarginBottom}`}
             variants={itemVariants}
           >
-            April 26, 2025 • Akure, Nigeria
+            April 25-26, 2025 • Akure, Nigeria
           </motion.p>
 
           {showCountdown && (
@@ -201,7 +189,7 @@ const Hero = ({
           ))}
         </div>
       )}
-    </section>
+    </div>
   );
 };
 

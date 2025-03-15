@@ -57,35 +57,35 @@ const FAQ = () => {
   const faqItems = [
     {
       question: "What is the dress code for the wedding?",
-      answer: "For the traditional ceremony on April 25th, we encourage traditional Nigerian attire. For the wedding ceremony and reception on April 26th, formal attire is requested. Our colors are green and burgundy for the wedding day. This event is strictly by invitation."
+      answer: "For the traditional ceremony on April 25th, we encourage traditional Nigerian attire. For the renewal of vows and reception on April 26th, formal or traditional attire is accepted. Our colors are green and burgundy for the wedding day. This event is strictly by invitation."
     },
     {
       question: "Are children welcome at the wedding?",
-      answer: "Yes, children are welcome at both the traditional ceremony and wedding ceremony. We will have activities to keep them entertained during the reception."
+      answer: "Yes, children are welcome at both the traditional ceremony and wedding ceremony."
     },
     {
       question: "Will there be transportation between venues?",
-      answer: "We will provide shuttle service between the church and reception venue on April 26th. Details will be shared closer to the wedding date."
+      answer: "Transportation to be sorted by the guests."
     },
     {
       question: "Where can guests stay during the wedding weekend?",
-      answer: "We have arranged special rates at several hotels in Akure. Please visit our Venue page for accommodation options and booking information."
+      answer: "Please visit our Venue page for recommended accommodation options and booking information."
     },
     {
       question: "What is your gift registry?",
-      answer: "We have created a gift registry with options for traditional gifts and monetary contributions towards our honeymoon. Please visit our Gifts page for more information."
+      answer: "We have created a gift registry for monetary contributions. Please visit our Gifts page for more information."
     },
     {
       question: "Is there parking available at the venues?",
-      answer: "Yes, both venues have ample parking space. There will also be parking attendants to assist guests."
+      answer: "Yes, both venues have ample parking space."
     },
     {
       question: "What time should guests arrive?",
-      answer: "We kindly request that guests arrive 30 minutes before the start of each ceremony to allow time for seating."
+      answer: "We kindly request that guests arrive early. Check the wedding schedule for more information."
     },
     {
       question: "Will the ceremony be indoors or outdoors?",
-      answer: "The traditional ceremony and reception will be indoors, while the church ceremony will be held inside the cathedral. We've arranged for all venues to be air-conditioned for your comfort."
+      answer: "It will be indoors and comfortable. Please check the wedding schedule for more information about the venue."
     }
   ];
 
@@ -143,6 +143,10 @@ const FAQ = () => {
                 src="/lovable-uploads/f7e9c3db-a15f-45fd-abe8-c24b74d628d2.png"
                 alt="Wedding questions"
                 className="h-64 rounded-lg shadow-lg object-cover decorative-border p-3"
+                imageStyles={{
+                  objectFit: 'cover',
+                  objectPosition: 'center 57%'
+                }}
               />
               <div className="absolute -bottom-3 -right-3 bg-[#7a0f23]/90 text-white py-2 px-4 rounded-lg text-sm font-cormorant italic shadow-lg">
                 Strictly by invitation
@@ -220,6 +224,10 @@ const FAQ = () => {
             src="/lovable-uploads/cc361c12-3011-49ba-8d4b-cab42ee07b3e.png"
             alt="Contact Us"
             className="h-80 rounded-lg shadow-lg decorative-border p-3"
+            imageStyles={{
+              objectFit: 'cover',
+              objectPosition: 'center 1%'
+            }}
           />
         </div>
 

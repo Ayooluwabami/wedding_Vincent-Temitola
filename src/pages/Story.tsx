@@ -31,6 +31,10 @@ const Story = () => {
             src="/lovable-uploads/571a7bbb-d095-4ec6-9e72-7fa4c716aa96.png"
             alt="Vincent and Temitola sharing a moment together"
             className="rounded-lg h-80 md:h-96 object-cover"
+            imageStyles={{
+              objectFit: 'cover',
+              objectPosition: 'center 5%'
+            }}
           />
           <div className="flex flex-col justify-center">
             <motion.h3
@@ -88,6 +92,10 @@ const Story = () => {
             src="/lovable-uploads/acd3f946-d6a8-482a-91bb-3fdf4913263c.png"
             alt="Vincent and Temitola in traditional attire"
             className="rounded-lg h-80 md:h-96 object-cover"
+            imageStyles={{
+              objectFit: 'cover',
+              objectPosition: 'center 42%'
+            }}
           />
           <div className="flex flex-col justify-center">
             <motion.h3
@@ -132,59 +140,6 @@ const Story = () => {
           >
             -Vincent.
           </motion.p>
-        </div>
-      </Section>
-
-      <Section
-        title="Our Timeline"
-        subtitle="Key moments in our journey together"
-      >
-        <div className="timeline relative max-w-4xl mx-auto before:absolute before:top-0 before:bottom-0 before:w-0.5 before:bg-wedding-gold/30 before:left-1/2 before:-translate-x-1/2">
-          <div className="timeline-item">
-            <div className="timeline-date">June 2019</div>
-            <div className="glass-card p-5 mb-8">
-              <h3 className="font-playfair text-xl font-semibold mb-2 text-wedding-charcoal">First Meeting</h3>
-              <p className="text-wedding-charcoal/80">
-                We met for the first time when she came to visit me in Akure. There was an instant connection,
-                and we spent the day in deep conversation, discovering shared interests and values.
-              </p>
-            </div>
-          </div>
-
-          <div className="timeline-item">
-            <div className="timeline-date">August 2019</div>
-            <div className="glass-card p-5 mb-8">
-              <h3 className="font-playfair text-xl font-semibold mb-2 text-wedding-charcoal">First Date</h3>
-              <p className="text-wedding-charcoal/80">
-                After staying in touch for a few weeks, Vincent finally gathered the courage to ask Temitola out.
-                They enjoyed a romantic dinner at a cozy restaurant in central London, where they talked until
-                closing time.
-              </p>
-            </div>
-          </div>
-
-          <div className="timeline-item">
-            <div className="timeline-date">November 2019</div>
-            <div className="glass-card p-5 mb-8">
-              <h3 className="font-playfair text-xl font-semibold mb-2 text-wedding-charcoal">Making It Official</h3>
-              <p className="text-wedding-charcoal/80">
-                After months of getting to know each other better, they decided to make their relationship
-                official. Vincent surprised Temitola with a special evening and asked her to be his girlfriend.
-              </p>
-            </div>
-          </div>
-
-          <div className="timeline-item">
-            <div className="timeline-date">December 2023</div>
-            <div className="glass-card p-5">
-              <h3 className="font-playfair text-xl font-semibold mb-2 text-wedding-charcoal">The Proposal</h3>
-              <p className="text-wedding-charcoal/80">
-                During a romantic getaway to a coastal resort, Vincent proposed at sunset on the beach.
-                With the sound of waves as a backdrop and the sky painted in golden hues, Temitola said "Yes!"
-                to forever with her best friend.
-              </p>
-            </div>
-          </div>
         </div>
       </Section>
     </>
