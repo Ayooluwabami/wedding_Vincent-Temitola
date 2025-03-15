@@ -189,7 +189,7 @@ const Home = () => {
             downloadable
           />
           <AnimatedImage
-            src="/lovable-uploads/f7e9c3db-a15f-45fd-abe8-c24b74d628d2.png"
+            src="/lovable-uploads/ac09c5c0-cc9e-4cdb-8a3a-d085a7a5ce08.png"
             alt="Gallery image 2"
             className="h-80 md:h-full"
             imageStyles={{
