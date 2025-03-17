@@ -5,13 +5,12 @@ import { ChevronUp } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
 
-// Add types for image customization
 type HeroImage = {
   src: string;
   backgroundSize?: string;
   backgroundPosition?: string;
-  mobileBackgroundSize?: string; // Added for mobile-specific styling
-  mobileBackgroundPosition?: string; // Added for mobile-specific styling
+  mobileBackgroundSize?: string;
+  mobileBackgroundPosition?: string;
 };
 
 interface HeroProps {
@@ -42,7 +41,6 @@ const Hero = ({
 }: HeroProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Process images to ensure they all have the HeroImage format
   const processImages = (imgs: (string | HeroImage)[]) => {
     return imgs.map(img => {
       if (typeof img === 'string') {
@@ -59,7 +57,6 @@ const Hero = ({
   const location = useLocation();
   const isMobile = useIsMobile();
 
-  // Only show the Hero on the homepage
   if (location.pathname !== '/' && location.pathname !== '/index') {
     return null;
   }
@@ -67,7 +64,7 @@ const Hero = ({
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % allImages.length);
-    }, 4000);
+    }, 2000);// change image every 2 seconds
     return () => {
       if (interval) clearInterval(interval);
     };
@@ -116,7 +113,7 @@ const Hero = ({
             initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className="w-full h-full"
           >
             <div
