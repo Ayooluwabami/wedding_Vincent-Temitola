@@ -89,7 +89,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Navbar isMobile={isMobile} /> {/* Pass isMobile as prop */}
+          <Navbar />
           <main className="min-h-screen pt-16">
             {isMobile ? (
               // Mobile view with continuous scrolling

@@ -53,7 +53,8 @@ const Story = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-wedding-charcoal/80"
             >
-              Meeting Temitola was nothing short of a divine moment—one of those encounters that feel destined from the very start. It all began on an ordinary Sunday when my close friend, while passing through Akure on his way to Abuja, stopped by to visit. In the midst of our conversations, he casually mentioned someone he thought I should meet. He spoke of Temitola with such enthusiasm, hoping something beautiful might blossom between us.
+              Meeting Temitola was nothing short of a divine moment—one of those encounters that feel destined from the very start. It all began on an ordinary Sunday when my close friend, while passing through Akure on his way to Abuja, stopped by to visit. In the midst of our conversations, he casually mentioned someone he thought I should meet. He spoke of Temitola with such enthusiasm, hoping something beautiful might blossom between us. <br /><br />
+              Curious—and maybe a little out of obligation to my friend—I decided to call her. That first conversation was magic. There was an instant connection, a warmth in her voice that made me want to keep talking. She was soft-spoken yet full of wisdom, respectful yet lively. It didn’t take long before our conversations became the highlight of my days.
             </motion.p>
           </div>
         </div>
@@ -76,7 +77,17 @@ const Story = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-wedding-charcoal/80"
             >
-              Curious—and maybe a little out of obligation to my friend—I decided to call her. That first conversation was magic. There was an instant connection, a warmth in her voice that made me want to keep talking. She was soft-spoken yet full of wisdom, respectful yet lively. It didn’t take long before our conversations became the highlight of my days.
+              As weeks went by, we grew closer. Then came the day she visited me in Akure. We went out on a date, and sitting across from her, seeing her smile, hearing her laugh—it hit me. This was it. Temitola wasn't just someone I liked; she was the one. She had the grace of a queen and the heart of someone who could build a home with me. That day, I became certain she would be the love of my life and the mother of my unborn children. <br /><br />
+              Now, here we are, stronger and more in love than ever. Our journey together has been nothing short of a blessing, and with every step, I thank the stars—and my friend—for leading me to her.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-wedding-charcoal/80 max-w-4xl mx-auto mt-6 text-right italic"
+            >
+              -Tobiloba.
             </motion.p>
           </div>
           <AnimatedImage
@@ -114,8 +125,12 @@ const Story = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-wedding-charcoal/80"
             >
-              Curious—and maybe a little out of obligation to my friend—I decided to call her. That first conversation was magic. There was an instant connection, a warmth in her voice that made me want to keep talking. She was soft-spoken yet full of wisdom, respectful yet lively. It didn't take long before our conversations became the highlight of my days.
-              As weeks went by, we grew closer. Then came the day she visited me in Akure. We went out on a date, and sitting across from her, seeing her smile, hearing her laugh—it hit me. This was it. Temitola wasn't just someone I liked; she was the one. She had the grace of a queen and the heart of someone who could build a home with me. That day, I became certain she would be the love of my life and the mother of my unborn children.
+              My journey with Oluwatobiloba has been nothing short of a miracle—a beautiful reminder of just how much God loves me.
+              We met at a time when love was the last thing on my mind. I had just walked away from a six-year relationship, and I told myself, “Men matters? Not anytime soon!” But as always, God had His own plans. <br /><br />
+
+              It all started even before I met him—before I even knew his name. One day, out of the blue, our family pastor called me and said, “You’re about to meet your husband. A friend will introduce him to you.” At that moment, I wasn’t exactly excited to hear that. But looking back now, I realize that was the first sign that something extraordinary was about to happen.
+
+              And then came the message. Oluwatobi sent me a text, and I responded. But of course, curiosity got the best of me, and I went straight to check his profile picture. And let’s just say—fine man no pimples! (I’ll leave the descriptions for another day).
             </motion.p>
           </div>
         </div>
@@ -128,7 +143,9 @@ const Story = () => {
             transition={{ duration: 0.6 }}
             className="text-wedding-charcoal/80 max-w-4xl mx-auto"
           >
-            Now, here we are, stronger and more in love than ever. Our journey together has been nothing short of a blessing, and with every step, I thank the stars—and my friend—for leading me to her.
+            From that very first conversation, something felt different. Days turned into weeks, and I don’t think a single day passed without hearing from him. He became my safe space, my support system, my answered prayer. Through the final phase of my journey as a medical student, he stood by me—not just as a teacher, but as a friend, a father, a lover, and my prayer partner.
+
+            Oluwatobiloba Vincent, you are my soulmate. You are proof that God’s plans are always better than ours. I love you, baby—beyond the moon and back.
           </motion.p>
 
           <motion.p
@@ -138,7 +155,7 @@ const Story = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-wedding-charcoal/80 max-w-4xl mx-auto mt-6 text-right italic"
           >
-            -Tobiloba.
+            -Temitola.
           </motion.p>
         </div>
       </Section>
